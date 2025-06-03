@@ -36,8 +36,8 @@ export default defineConfig({
 					@use "@styles/base/null";
 					@use "@styles/themes/v_01/light.scss";
 					@use "@styles/themes/v_01/dark.scss";
+					@use "@styles/base/media-new" as *;
 					@use "@styles/base/variables" as *;
-					@use "@styles/base/media-new";
 					@use "@styles/fonts/fonts.scss";
 					@use "@styles/fonts/icons.scss";
 					@use "@styles/base/common.scss";

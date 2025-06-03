@@ -1,0 +1,39 @@
+---
+
+const {cardTitle, cardIcon, cardContent} = Astro.props;
+---
+
+<div class="advantages-card">
+    <h3 class="advantages-card__title">{cardTitle}<span class={cardIcon}></span></h3>
+    <p class="advantages-card__content">{cardContent}</p>
+</div>
+
+<style lang="scss">
+	.advantages-card {
+			&__header {
+			}
+
+			&__title {
+					color: var(--md-sys-color-primary);
+					font-size: var(--font-size-headline-large); //26
+			}
+
+			&__content {
+					color: var(--md-sys-color-secondary);
+					//padding: var(--space-md) var(--space-xxl);
+					padding-top: var(--space-y-card);
+					padding-bottom: var(--space-y-card);
+			}
+			[class*="_icon-"] {
+					font-size: var(--icon-size-medium); // 32px
+					padding-left: 8px;
+					
+			}
+			&:nth-child(odd) {
+					text-align: end;
+					
+			}
+
+			
+	}
+</style>

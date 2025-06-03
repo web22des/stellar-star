@@ -8,22 +8,57 @@
             <h2 class="section-title">section-test-title</h2>
             <p class="section-subtitle">section-test-subtitle</p>
         </div>
+				<div class="section-test__block">
+					<h2 class="title-section">Цены на разработку сайтов</h2>
+					<h3 class="title-card">Далеко-далеко за словесными горами в стране.</h3>
+					<h4 class="title-card-sm">Далеко-далеко за словесными горами в стране.</h4>
+					Lorem ipsum dolor sit, amet consectetur adipisicing.
+				</div>
+				<div class="section-test__card-grup">
+					<div class="section-test__card">
+						<h3 class="card-title-base"></h3>
+						
+					</div>
+				</div>
     </div>
 </section>
 
 <style lang="scss">
 .section-test {
+	text-align: center;
 
 		&__container {
+		}
+
+		&__block {
+display:grid;
+grid-template-columns: repeat(1, 1fr);
+gap: 24px;
+
 		}
 }
 .section-title-wrap {
 }
 .section-title {
-	font-size: var(--font-size-xxl);
+	font-size: var(--font-size-display-large);
 	padding: var(--space-section) 0 var(--space-section);
 }
 .section-subtitle {
+}
+
+
+.title-section {
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-display-large);
+	
+}
+.title-card {
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-display-medium);
+}
+.title-card-sm {
+	font-weight: var(--font-weight-bold);
+	font-size: var(--font-size-display-small);
 }
 
 </style>

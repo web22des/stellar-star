@@ -1,0 +1,93 @@
+---
+const { titleSection, subTitleSection } = Astro.props;
+---
+
+<div class="title-sections__wrap">
+  <h2 class="title-sections__title">{titleSection}</h2>
+  <div class="marquee-container">
+    <h3 class="title-sections__subtitle marquee-text" data-text={subTitleSection}>{subTitleSection}</h3>
+  </div>
+</div>
+
+<style lang="scss">
+  .title-sections {
+    &__wrap {
+      padding: var(--space-md);
+      border-left: var(--border-width-heavy) solid var(--md-sys-color-primary);
+      margin-bottom: var(--space-xl);
+    }
+
+    &__title {
+      color: var(--md-sys-color-primary);
+      font-size: var(--font-size-display-large);
+      text-shadow: var(--text-shadow-Light-03);
+      margin-bottom: var(--space-sm);
+    }
+
+    &__subtitle {
+      color: var(--md--sys-color-secondary);
+      text-shadow: var(--text-shadow-Light-02);
+      font-size: var(--font-size-xxl);
+    }
+  }
+
+  .marquee-container {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+  }
+
+  .marquee-text {
+    display: inline-block;
+    padding-left: 100%;
+    animation: marquee 25s linear infinite; // скорость проигрывания анимации
+    will-change: transform; /* Оптимизация анимации */
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  /* Отключаем анимацию на десктопе и для пользователей, предпочитающих reduced motion */
+  @media (min-width: 768px), (prefers-reduced-motion: reduce) {
+    .marquee-text {
+      animation: none;
+      white-space: normal;
+      padding-left: 0;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      const marquees = document.querySelectorAll<HTMLElement>('.marquee-text');
+
+      // Запускаем IntersectionObserver для ленивой загрузки анимации
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              (entry.target as HTMLElement).style.animationPlayState = 'running';
+            } else {
+              (entry.target as HTMLElement).style.animationPlayState = 'paused';
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      marquees.forEach((marquee) => {
+        // Дублируем текст для бесшовной анимации
+        const text = marquee.dataset.text || '';
+        marquee.innerHTML += `<span aria-hidden="true">${text}</span>`;
+        observer.observe(marquee);
+      });
+    }
+  });
+</script>

@@ -1,247 +1,322 @@
-@use "../base/mixins/_rem-em.scss" as rem-em;
+@use '../base/mixins/_rem-em.scss' as rem-em;
+@use '../base/media-new.scss' as *;
 
 :root {
-    // =============================================
-    // 1. ТИПОГРАФИКА
-    // =============================================
+  // =============================================
+  // 1. ТИПОГРАФИКА
+  // =============================================
 
-    // Шрифты
-    --font-family-base: "Roboto", system-ui, sans-serif;
-    --font-family-heading: "Roboto", system-ui, sans-serif;
-    --font-family-mono: "Roboto", system-ui, sans-serif;
+  // Шрифты
+  --font-family-base: 'Roboto', system-ui, sans-serif;
+  --font-family-heading: 'Roboto', system-ui, sans-serif;
+  --font-family-mono: 'Roboto', system-ui, sans-serif;
 
-    // Начертания (перенесено выше медиазапросов)
-    --font-weight-light: 300;
-    --font-weight-regular: 400;
-    --font-weight-bold: 700;
+  // Начертания (перенесено выше медиазапросов)
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
 
-    // Базовые размеры шрифтов (до медиазапросов)
-    --font-size-base: #{rem-em.rem(16)};
-    --font-size-xs: #{rem-em.rem(12)};
-    --font-size-sm: #{rem-em.rem(14)};
-    --font-size-md: #{rem-em.rem(16)};
-    --font-size-lg: #{rem-em.rem(18)};
-    --font-size-xl: #{rem-em.rem(20)};
-    --font-size-xxl: #{rem-em.rem(26)};
-    --font-size-xxxl: #{rem-em.rem(36)};
-    --font-size-display: #{rem-em.rem(96)};
+  // Базовые размеры шрифтов (до медиазапросов)
+  --font-size-base: #{rem-em.rem(16)};
+  --font-size-xs: #{rem-em.rem(12)};
+  --font-size-sm: #{rem-em.rem(14)};
+  --font-size-md: #{rem-em.rem(16)};
+  --font-size-lg: #{rem-em.rem(18)};
+  --font-size-xl: #{rem-em.rem(20)};
+  --font-size-xxl: #{rem-em.rem(26)};
+  --font-size-xxxl: #{rem-em.rem(28)};
 
-    // Межстрочные интервалы
-    --line-height-base: 1.3;
-    --line-height-heading: 1.2;
-    --line-height-tight: 1.1;
-    --line-height-loose: 1.7;
+  // Matherial Theme
+  --font-size-body-small: #{rem-em.rem(12)};
+  --font-size-body-medium: #{rem-em.rem(14)};
+  --font-size-body-large: #{rem-em.rem(16)};
 
-    // Межбуквенные интервалы
-    --letter-spacing-tighter: -0.03em; /* ≈ -0.48px (сильное сужение) */
-    --letter-spacing-tight: -0.02em; /* ≈ -0.32px (легкое сужение) */
-    --letter-spacing-normal: 0; /* 0px */
-    --letter-spacing-wide: 0.025em; /* ≈ 0.4px (минимальное расширение) */
-    --letter-spacing-wider: 0.05em; /* ≈ 0.8px */
-    --letter-spacing-widest: 0.1em; /* ≈ 1.6px (для заголовков) */
+  --font-size-label-large-prominent: #{rem-em.rem(14)};
+  --font-size-lable-large: #{rem-em.rem(14)};
+  --font-size-lable-medium-prominent: #{rem-em.rem(14)};
+  --font-size-lable-medium: #{rem-em.rem(12)};
+  --font-size-lable-large: #{rem-em.rem(11)};
 
-    // =============================================
-    // 2. ЦВЕТА
-    // =============================================
+  --font-size-title-small: #{rem-em.rem(14)}; // - 14
+  --font-size-title-medium: #{rem-em.rem(16)}; // - 16
+  --font-size-title-large: #{rem-em.rem(22)}; // - 22
 
-    // Основные цвета
-    --color-primary: #110e71;
-    --color-primary-hover: #1d4ed8;
-    --color-secondary: #6b7280;
-    --color-success: #10b981;
-    --color-warning: #f59e0b;
-    --color-danger: #ef4444;
-    --color-info: #3b82f6;
+  --font-size-headline-small: #{rem-em.rem(24)}; // - 24
+  --font-size-headline-medium: #{rem-em.rem(28)}; //  - 28
+  --font-size-headline-large: #{rem-em.rem(32)}; // 22 - 32
 
-    // Текст
-    --color-text: #e2dddd;
-    --color-icons-base: #c0b7e8;
-    --color-text-light: #7b7886;
-    --color-text-inverted: #ffffff;
-    --color-heading: #111827;
+  --font-size-display-large: #{rem-em.rem(32)}; // 32 - 57
+  --font-size-display-medium: #{rem-em.rem(28)}; // 28 - 45
+  --font-size-display-small: #{rem-em.rem(24)}; // 24 - 36
 
-    // Фоны
-    --color-bg: #ffffff;
-    --color-bg-secondary: radial-gradient(2900.76% 50.13% at 50% 53.89%, rgba(58, 52, 86, 0.95) 0%, #211e2e 100%);
-    --color-bg-dark: #343045;
-    --color-bg-fill: #c0b7e8;
-    --color-bg-overlay: rgba(0, 0, 0, 0.5);
-    --color-bg-accent: #fff;
+  // Межстрочные интервалы
+  --line-height-tight: 1.1;
+  --line-height-heading: 1.2;
+  --line-height-base: 1.3;
+  --line-height-loose: 1.7;
 
-    // Границы
-    --color-border: #fff;
-    --color-border-dark: #343045;
-    --color-border-light: #f3f4f6;
+  // Межбуквенные интервалы
+  --letter-spacing-tighter: -0.03em; /* ≈ -0.48px (сильное сужение) */
+  --letter-spacing-tight: -0.02em; /* ≈ -0.32px (легкое сужение) */
+  --letter-spacing-normal: 0; /* 0px */
+  --letter-spacing-wide: 0.025em; /* ≈ 0.4px (минимальное расширение) */
+  --letter-spacing-wider: 0.05em; /* ≈ 0.8px */
+  --letter-spacing-widest: 0.1em; /* ≈ 1.6px (для заголовков) */
 
-    // Состояния
-    --color-hover: #f3f4f6;
-    --color-active: #e5e7eb;
-    --color-focus: rgba(59, 130, 246, 0.3);
+  // =============================================
+  // 2. ЦВЕТА
+  // =============================================
 
-    // Градиенты
-    --linear-gradient-base: linear-gradient(92deg, #c0b7e8 -1.02%, #8176af 36.25%);
-    --linear-gradient-primary: 92deg, #c0b7e8 -1.02%, #8176af 36.25%;
-    --linear-gradient-accent: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
-    --linear-gradient-line-base: linear-gradient(to right, #343045 0%, #343045 0%, #c0b7e8 34.9%, #8176af 68.75%, #343045 100%);
-    --radial-gradient-base: radial-gradient(50% 50% at 50% 50%, #403a5f 0%, #211e2e 100%);
+  // Основные цвета
+  --color-primary: #110e71;
+  --color-primary-hover: #1d4ed8;
+  --color-secondary: #6b7280;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-info: #3b82f6;
 
-    // =============================================
-    // 3. ОТСТУПЫ И РАЗМЕРЫ
-    // =============================================
+  // Текст
+  --color-text: #e2dddd;
+  --color-icons-base: #c0b7e8;
+  --color-text-light: #7b7886;
+  --color-text-inverted: #ffffff;
+  --color-heading: #111827;
 
-    // Базовый размер
-    --space-unit: 1rem;
+  // Фоны
+  --color-bg: #ffffff;
+  --color-bg-secondary: radial-gradient(2900.76% 50.13% at 50% 53.89%, rgba(58, 52, 86, 0.95) 0%, #211e2e 100%);
+  --color-bg-dark: #343045;
+  --color-bg-fill: #c0b7e8;
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --color-bg-accent: #fff;
 
-    // Базовые отступы
-    --space-xxs: #{rem-em.rem(4)};
-    --space-xs: #{rem-em.rem(8)};
-    --space-sm: #{rem-em.rem(12)};
-    --space-md: #{rem-em.rem(16)};
-    --space-lg: #{rem-em.rem(24)};
-    --space-xl: #{rem-em.rem(32)};
-    --space-xxl: #{rem-em.rem(48)};
-    --space-xxxl: #{rem-em.rem(64)};
+  // Границы
+  --color-border: #fff;
+  --color-border-dark: #343045;
+  --color-border-light: #f3f4f6;
 
-    // Компонентные отступы
-    --space-y-button: #{rem-em.rem(16)}; // вертикаль (кнопки)
-    --space-x-button: #{rem-em.rem(24)}; // горизонталь (кнопки)
+  // Состояния
+  --color-hover: #f3f4f6;
+  --color-active: #e5e7eb;
+  --color-focus: rgba(59, 130, 246, 0.3);
 
-    --space-y-card: #{rem-em.rem(16)}; // 16px (карточки)
-    --space-x-card: #{rem-em.rem(16)}; // 16px (карточки)
-    --space-all-card: #{rem-em.rem(16)}; // 16px (карточки)
+  // Градиенты
+  --linear-gradient-base: linear-gradient(92deg, #c0b7e8 -1.02%, #8176af 36.25%);
+  --linear-gradient-primary: 92deg, #c0b7e8 -1.02%, #8176af 36.25%;
+  --linear-gradient-accent: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
+  --linear-gradient-line-base: linear-gradient(to right, #343045 0%, #343045 0%, #c0b7e8 34.9%, #8176af 68.75%, #343045 100%);
+  --radial-gradient-base: radial-gradient(50% 50% at 50% 50%, #403a5f 0%, #211e2e 100%);
 
-    --space-input: var(--space-sm); // 12px (поля ввода)
-    --space-section: var(--space-lg); // 24px (секции)
+  // =============================================
+  // 3. ОТСТУПЫ И РАЗМЕРЫ
+  // =============================================
 
-    // Специальные случаи
-    --space-icon-text: #{rem-em.rem(8)}; // Отступ между иконкой и текстом
-    --space-grid-gap: var(--space-lg); // Отступы в grid-сетках
+  // Базовый размер
+  --space-unit: 1rem;
 
-    // =============================================
-    // 4. ГРАНИЦЫ И СКРУГЛЕНИЯ
-    // =============================================
+  // Базовые отступы
+  --space-xxs: #{rem-em.rem(4)};
+  --space-xs: #{rem-em.rem(8)};
+  --space-sm: #{rem-em.rem(12)};
+  --space-md: #{rem-em.rem(16)};
+  --space-lg: #{rem-em.rem(24)};
+  --space-xl: #{rem-em.rem(32)};
+  --space-xxl: #{rem-em.rem(48)};
+  --space-xxxl: #{rem-em.rem(64)};
 
-    /* Border Width Variables */
-    --border-width-none: 0;
-    --border-width-hairline: 0.5px;
-    --border-width-thin: 1px;
-    --border-width-medium: 2px;
-    --border-width-thick: 3px;
-    --border-width-heavy: 4px;
+  // Компонентные отступы
+  --space-y-button: #{rem-em.rem(16)}; // вертикаль (кнопки)
+  --space-x-button: #{rem-em.rem(24)}; // горизонталь (кнопки)
 
-    // Радиусы скругления
-    --border-radius-none: 0;
-    --border-radius-extra-small: #{rem-em.rem(4)};
-    --border-radius-small: #{rem-em.rem(8)};
-    --border-radius-medium: #{rem-em.rem(12)};
-    --border-radius-large: #{rem-em.rem(16)};
-    --border-radius-large-increased: #{rem-em.rem(20)};
-    --border-radius-extra-large: #{rem-em.rem(28)};
-    --border-radius-full: #{rem-em.rem(1000)};
+  --space-y-card: #{rem-em.rem(16)}; // 16px (карточки)
+  --space-x-card: #{rem-em.rem(16)}; // 16px (карточки)
+  --space-all-card: #{rem-em.rem(16)}; // 16px (карточки)
 
-    // =============================================
-    // 5. РАЗМЕРЫ КОМПОНЕНТОВ
-    // =============================================
+  --space-input: var(--space-sm); // 12px (поля ввода)
+  --space-section: var(--space-lg); // 24px (секции)
 
-    // Основные размеры
-    --header-height: #{rem-em.rem(60)};
-    --sidebar-width: #{rem-em.rem(240)};
-    --max-content-width: #{rem-em.rem(1200)};
-    --container-padding: var(--space-md);
+  // Специальные случаи
+  --space-icon-text: #{rem-em.rem(8)}; // Отступ между иконкой и текстом
+  --space-grid-gap: var(--space-lg); // Отступы в grid-сетках
 
-    // Карточки
-    --card-size-xs: #{rem-em.rem(100)};
-    --card-size-sm: #{rem-em.rem(150)};
-    --card-size-md: #{rem-em.rem(310)};
-    --card-size-lg: #{rem-em.rem(500)};
-    --card-size-xl: #{rem-em.rem(600)};
+  // =============================================
+  // 4. ГРАНИЦЫ И СКРУГЛЕНИЯ
+  // =============================================
 
-    // Иконки
-    --icon-size-extra-small: #{rem-em.rem(12)};
-    --icon-size-small: #{rem-em.rem(18)};
-    --icon-size-medium: #{rem-em.rem(32)};
-    --icon-size-large: #{rem-em.rem(40)};
-    --icon-size-extra-large: #{rem-em.rem(96)};
-    --icon-size-auto: auto;
-    --icon-size-full: 100%;
-    --icon-radius-sm: #{rem-em.rem(4)};
-    --icon-radius-full: 50%;
+  /* Border Width Variables */
+  --border-width-none: 0;
+  --border-width-hairline: 0.5px;
+  --border-width-thin: 1px;
+  --border-width-medium: 2px;
+  --border-width-thick: 3px;
+  --border-width-heavy: 4px;
 
-    // Картинки
-    --img-ratio-square: 1/1;
-    --img-ratio-landscape: 16/9;
-    --img-ratio-portrait: 9/16;
-    --img-ratio-custom: 4/3;
-    --img-width-auto: auto;
-    --img-width-full: 100%;
-    --img-width-xs: #{rem-em.rem(120)};
-    --img-width-sm: #{rem-em.rem(240)};
-    --img-width-md: #{rem-em.rem(400)};
-    --img-width-lg: #{rem-em.rem(600)};
-    --img-width-xl: #{rem-em.rem(800)};
-    --img-height-auto: auto;
-    --img-height-full: 100%;
-    --img-height-xs: #{rem-em.rem(80)};
-    --img-height-sm: #{rem-em.rem(160)};
-    --img-height-md: #{rem-em.rem(300)};
-    --img-height-lg: #{rem-em.rem(450)};
-    --img-height-xl: #{rem-em.rem(600)};
-    --img-min-width: #{rem-em.rem(100)};
-    --img-max-width: 100%;
-    --img-min-height: #{rem-em.rem(50)};
-    --img-max-height: 100vh;
+  // Радиусы скругления
+  --border-radius-none: 0;
+  --border-radius-extra-small: #{rem-em.rem(4)};
+  --border-radius-small: #{rem-em.rem(8)};
+  --border-radius-medium: #{rem-em.rem(12)};
+  --border-radius-large: #{rem-em.rem(16)};
+  --border-radius-large-increased: #{rem-em.rem(20)};
+  --border-radius-extra-large: #{rem-em.rem(28)};
+  --border-radius-full: #{rem-em.rem(1000)};
 
-    // =============================================
-    // 6. ТЕНИ И ЭФФЕКТЫ
-    // =============================================
+  // =============================================
+  // 5. РАЗМЕРЫ КОМПОНЕНТОВ
+  // =============================================
 
-    // Тени блоков
-    --box-shadow-Light-01: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-    --box-shadow-Light-02: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
-    --box-shadow-Light-03: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Light-04: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Light-05: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Dark-01: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Dark-02: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Dark-03: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Dark-04: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
-    --box-shadow-Dark-05: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  // Основные размеры
+  --header-height: #{rem-em.rem(60)};
+  --sidebar-width: #{rem-em.rem(240)};
+  --max-content-width: #{rem-em.rem(1200)};
+  --container-padding: var(--space-md);
 
-    // Тени текста
-    --text-shadow-Light-02: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px rgba(0, 0, 0, 0.15);
-    --text-shadow-Light-03: 0px 4px 8px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
-    --text-shadow-Light-04: 0px 6px 10px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
+  // Карточки
+  --card-size-xs: #{rem-em.rem(100)};
+  --card-size-sm: #{rem-em.rem(150)};
+  --card-size-md: #{rem-em.rem(310)};
+  --card-size-lg: #{rem-em.rem(500)};
+  --card-size-xl: #{rem-em.rem(600)};
 
-    // =============================================
-    // 7. АНИМАЦИЯ И ПЕРЕХОДЫ
-    // =============================================
+  // Иконки
+  --icon-size-extra-small: #{rem-em.rem(12)};
+  --icon-size-small: #{rem-em.rem(18)};
+  --icon-size-medium: #{rem-em.rem(32)};
+  --icon-size-large: #{rem-em.rem(40)};
+  --icon-size-extra-large: #{rem-em.rem(96)};
+  --icon-size-auto: auto;
+  --icon-size-full: 100%;
+  --icon-radius-sm: #{rem-em.rem(4)};
+  --icon-radius-full: 50%;
 
-    --transition-duration-fast: 0.15s;
-    --transition-duration-normal: 0.3s;
-    --transition-duration-slow: 0.5s;
-    --transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-timing-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+  // Картинки
+  --img-ratio-square: 1/1;
+  --img-ratio-landscape: 16/9;
+  --img-ratio-portrait: 9/16;
+  --img-ratio-custom: 4/3;
+  --img-width-auto: auto;
+  --img-width-full: 100%;
+  --img-width-xs: #{rem-em.rem(120)};
+  --img-width-sm: #{rem-em.rem(240)};
+  --img-width-md: #{rem-em.rem(400)};
+  --img-width-lg: #{rem-em.rem(600)};
+  --img-width-xl: #{rem-em.rem(800)};
+  --img-height-auto: auto;
+  --img-height-full: 100%;
+  --img-height-xs: #{rem-em.rem(80)};
+  --img-height-sm: #{rem-em.rem(160)};
+  --img-height-md: #{rem-em.rem(300)};
+  --img-height-lg: #{rem-em.rem(450)};
+  --img-height-xl: #{rem-em.rem(600)};
+  --img-min-width: #{rem-em.rem(100)};
+  --img-max-width: 100%;
+  --img-min-height: #{rem-em.rem(50)};
+  --img-max-height: 100vh;
 
-    // =============================================
-    // 8. Z-ИНДЕКСЫ И СЛОИ
-    // =============================================
+  // =============================================
+  // 6. ТЕНИ И ЭФФЕКТЫ
+  // =============================================
 
-    --z-index-base: 0;
-    --z-index-dropdown: 100;
-    --z-index-sticky: 200;
-    --z-index-modal: 300;
-    --z-index-overlay: 400;
-    --z-index-tooltip: 500;
-    --z-index-toast: 600;
+  // Тени блоков
+  --box-shadow-Light-01: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+  --box-shadow-Light-02: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 2px 6px 2px rgba(0, 0, 0, 0.15);
+  --box-shadow-Light-03: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Light-04: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Light-05: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Dark-01: 0px 1px 3px 1px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Dark-02: 0px 2px 6px 2px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Dark-03: 0px 4px 8px 3px rgba(0, 0, 0, 0.15), 0px 1px 3px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Dark-04: 0px 6px 10px 4px rgba(0, 0, 0, 0.15), 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+  --box-shadow-Dark-05: 0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
 
-    // =============================================
-    // 9. ПРОЧИЕ ПЕРЕМЕННЫЕ
-    // =============================================
+  // Тени текста
+  --text-shadow-Light-02: 0px 1px 2px rgba(0, 0, 0, 0.3), 0px 2px 6px rgba(0, 0, 0, 0.15);
+  --text-shadow-Light-03: 0px 4px 8px rgba(0, 0, 0, 0.15), 0px 1px 3px rgba(0, 0, 0, 0.3);
+  --text-shadow-Light-04: 0px 6px 10px rgba(0, 0, 0, 0.15), 0px 2px 3px rgba(0, 0, 0, 0.3);
 
-    --max-width-container: #{rem-em.rem(1200)};
-    --min-width-container: #{rem-em.rem(320)};
-    --min-height-screen: 100vh;
-    --max-height-modal: 90vh;
-    --opacity-disabled: 0.5;
-    --opacity-hover: 0.8;
+  // =============================================
+  // 7. АНИМАЦИЯ И ПЕРЕХОДЫ
+  // =============================================
+
+  --transition-duration-fast: 0.15s;
+  --transition-duration-normal: 0.3s;
+  --transition-duration-slow: 0.5s;
+  --transition-timing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-timing-bounce: cubic-bezier(0.68, -0.6, 0.32, 1.6);
+
+  // =============================================
+  // 8. Z-ИНДЕКСЫ И СЛОИ
+  // =============================================
+
+  --z-index-base: 0;
+  --z-index-dropdown: 100;
+  --z-index-sticky: 200;
+  --z-index-modal: 300;
+  --z-index-overlay: 400;
+  --z-index-tooltip: 500;
+  --z-index-toast: 600;
+
+  // =============================================
+  // 9. ПРОЧИЕ ПЕРЕМЕННЫЕ
+  // =============================================
+
+  --max-width-container: #{rem-em.rem(1200)};
+  --min-width-container: #{rem-em.rem(320)};
+  --min-height-screen: 100vh;
+  --max-height-modal: 90vh;
+  --opacity-disabled: 0.5;
+  --opacity-hover: 0.8;
+
+  //========================================================================================================================================================
+  // Media
+
+  //411px и более
+  @media (min-width: $mobile-medium) {
+    //--font-size-display-large: #{rem-em.rem(30)};
+    --font-size-display-medium: #{rem-em.rem(28)};
+  }
+  //1535px и более
+  @media (min-width: $laptop-medium) {
+    --font-size-display-large: #{rem-em.rem(32)};
+  }
+  //599px и более
+  @media (min-width: $mobile-large) {
+    --font-size-display-large: #{rem-em.rem(34)};
+    //--font-size-display-medium: #{rem-em.rem(28)};
+    --font-size-display-small: #{rem-em.rem(26)};
+  }
+  //767px и более
+  @media (min-width: $tablet-small) {
+    --font-size-display-large: #{rem-em.rem(38)};
+    --font-size-display-medium: #{rem-em.rem(30)};
+  }
+  //1023px и более
+  @media (min-width: $tablet-medium) {
+    --font-size-display-large: #{rem-em.rem(42)};
+    --font-size-display-medium: #{rem-em.rem(32)};
+  }
+  //1279px и более
+  @media (min-width: $tablet-large) {
+    --font-size-display-large: #{rem-em.rem(46)};
+    --font-size-display-medium: #{rem-em.rem(36)};
+    --font-size-display-small: #{rem-em.rem(28)};
+  }
+  //1365px и более
+  @media (min-width: $laptop-small) {
+    --font-size-display-large: #{rem-em.rem(50)};
+    --font-size-display-medium: #{rem-em.rem(40)};
+    --font-size-display-small: #{rem-em.rem(30)};
+  } //1535px и более
+  @media (min-width: $laptop-medium) {
+    --font-size-display-large: #{rem-em.rem(54)};
+    --font-size-display-medium: #{rem-em.rem(42)};
+    --font-size-display-small: #{rem-em.rem(32)};
+  }
+  //1919px и более
+  @media (min-width: $laptop-large) {
+    --font-size-display-large: #{rem-em.rem(57)};
+    --font-size-display-medium: #{rem-em.rem(45)};
+    --font-size-display-small: #{rem-em.rem(36)};
+  }
 }

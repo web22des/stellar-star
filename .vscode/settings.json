@@ -7,11 +7,38 @@
         "editor.formatOnSave": true
     },
 
+    // Настройки для Astro
+    "[astro]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2
+    },
+
+    // Настройки для JSON
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true
+    },
+
+    // Доп. настройки для Astro
+    "prettier.documentSelectors": ["**/*.astro"],
+    "prettier.astroIndent.style": "tab",
+    "prettier.astroIndent.scriptAndStyle": false,
+
     // Общие настройки Prettier
-    "prettier.tabWidth": 2,
-    "prettier.useTabs": false,
-    "prettier.singleQuote": false,
-    "prettier.yaml": {
-        "proseWrap": "always"
+    "prettier": {
+        "singleQuote": true,
+        "jsxSingleQuote": false,
+        "tabWidth": 2,
+        "useTabs": false,
+        "yaml": {
+            "proseWrap": "always"
+        },
+        "json": {
+            "tabWidth": 2,
+            "useTabs": false
+        }
     }
 }

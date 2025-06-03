@@ -1,0 +1,63 @@
+@use "../base/mixins/grid.scss" as grid;
+@use "../base/media.scss" as media;
+
+.website-types {
+    padding-top: var(--space-xxl);
+
+    &__container {
+    }
+
+    &__card {
+        display: flex;
+        gap: var(--space-grid-gap);
+        margin-bottom: 24px;
+        // Исправленный селектор для четных карточек
+        &:nth-child(even) {
+            flex-direction: row-reverse; // Добавлен reverse для изменения порядка
+            @media (max-width: media.$tablet) {
+                flex-direction: column-reverse;
+            }
+        }
+        @media (max-width: media.$tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__wrap-images {
+        aspect-ratio: 3/2;
+        width: 100%;
+
+        //flex: 1;
+        background: var(--md-sys-color-on-tertiary);
+    }
+
+    &__images {
+    }
+
+    &__content {
+        //flex: 1;
+        width: 100%;
+        max-height: 260px;
+        overflow-y: auto;
+        @media (max-width: media.$mobile) {
+            text-align: center;
+        }
+    }
+
+    &__title {
+        color: var(--md-sys-color-primary);
+        font-size: var(--font-size-xxl);
+        margin-bottom: var(--space-lg);
+        position: sticky;
+    }
+
+    &__paragraph {
+        text-align: start;
+    }
+
+    &__text {
+        color: var(--md-sys-color-secondary);
+        text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+        margin-bottom: var(--space-md);
+    }
+}

@@ -1,0 +1,14 @@
+---
+import Test from "../components/sections/Test.astro";
+import PageLayout from "../layouts/PageLayout.astro";
+
+const title = "Контакты"
+---
+
+<PageLayout title={title}>
+	<div class="contact-page">
+		<div class="contact-page__container">
+			<h1>{title}</h1>
+			<Test />
+		</div>
+	</div>

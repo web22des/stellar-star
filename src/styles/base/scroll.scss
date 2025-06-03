@@ -1,0 +1,28 @@
+/* Для вебкит-браузеров (Chrome, Edge, Safari) */
+
+html {
+    scrollbar-width: thin; /* "auto" | "thin" | "none" */
+    scrollbar-color: var(--md-sys-color-primary) var(--md-sys-color-primary-container); /* ползунок трек */
+}
+::-webkit-scrollbar {
+    width: 6px; /* Ширина вертикального скроллбара */
+    height: 12px; /* Высота горизонтального скроллбара */
+}
+
+::-webkit-scrollbar-track {
+    background: rgb(9, 42, 172); /* Цвет трека */
+    //border-radius: 10px; /* Закругление трека */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0d49d3; /* Цвет ползунка */
+    border-radius: 10px; /* Закругление ползунка */
+    border: 2px solid #f1f1f1; /* Отступ вокруг ползунка */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #bc0505; /* Цвет при наведении */
+}
+::-webkit-scrollbar-button {
+    display: none; /* Скрыть кнопки (стрелки) */
+}

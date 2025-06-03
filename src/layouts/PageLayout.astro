@@ -3,6 +3,7 @@ import "../styles/main.scss";
 
 import Header from "../components/partials/Header.astro";
 import Footer from "../components/partials/Footer.astro";
+import ThemeToggle from "../components/ui/ThemeToggle.astro";
 // Импортируем глобальные стили MD
 //import '@astrojs/markdown-remark/markdown.css';
 
@@ -32,6 +33,9 @@ const { title = "Главная" } = Astro.props;
         <title>{title}</title>
     </head>
     <body class="wrapper">
+			<div class="wrapper-theme-toggle">
+				<ThemeToggle />
+			</div>
         <Header />
         <main class="page">
             <slot />
@@ -39,3 +43,13 @@ const { title = "Главная" } = Astro.props;
         <Footer />
     </body>
 </html>
+<style lang="scss">
+	.wrapper-theme-toggle {
+		position: relative;
+		&.theme-toggle {
+			content: '';
+			position: absolute;
+			right: 0;
+		}
+	}
+</style>

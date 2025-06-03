@@ -1,44 +1,63 @@
 {
-    // Настройки для YAML
-    "[yaml]": {
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true,
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+  // Базовые настройки редактора
+  "editor.tabSize": 2,
+  "editor.insertSpaces": false,
+  "editor.detectIndentation": false,
+
+  // Языковые настройки
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[astro]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "editor.insertSpaces": false
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2
+  },
+
+  // Настройки Prettier
+  "prettier": {
+    "singleQuote": true,
+    "jsxSingleQuote": false,
+    "tabWidth": 2,
+    "useTabs": false,
+    "yaml": {
+      "proseWrap": "always"
     },
-
-    // Настройки для Astro
-    "[astro]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2
-    },
-
-    // Настройки для JSON
-    "[json]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2,
-        "editor.insertSpaces": true
-    },
-
-    // Доп. настройки для Astro
-    "prettier.documentSelectors": ["**/*.astro"],
-    "prettier.astroIndent.style": "tab",
-    "prettier.astroIndent.scriptAndStyle": false,
-
-    // Общие настройки Prettier
-    "prettier": {
-        "singleQuote": true,
-        "jsxSingleQuote": false,
-        "tabWidth": 2,
-        "useTabs": false,
-        "yaml": {
-            "proseWrap": "always"
-        },
-        "json": {
-            "tabWidth": 2,
-            "useTabs": false
+    "pluginSearchDirs": ["."],
+    "overrides": [
+      {
+        "files": "*.astro",
+        "options": {
+          "parser": "astro"
         }
-    }
+      }
+    ]
+  },
+
+  // Интеграция с Astro
+  "prettier.documentSelectors": ["**/*.astro"],
+  "prettier.astroIndent.style": "tab",
+  "prettier.astroIndent.scriptAndStyle": false,
+
+  // Настройки Path Intellisense
+  "path-intellisense.mappings": {
+    "@": "${workspaceFolder}/src",
+    "@components": "${workspaceFolder}/src/components",
+    "@styles": "${workspaceFolder}/src/styles",
+    "@scripts": "${workspaceFolder}/src/scripts",
+    "@assets": "${workspaceFolder}/src/assets",
+    "@layouts": "${workspaceFolder}/src/layouts",
+    "@fonts": "${workspaceFolder}/public/fonts",
+    "@images": "${workspaceFolder}/public/images",
+    "@icons": "${workspaceFolder}/public/icons",
+    "@favicon": "${workspaceFolder}/public/favicon"
+  },
+  "path-intellisense.autoSlash": true
 }

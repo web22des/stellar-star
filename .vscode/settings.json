@@ -1,0 +1,17 @@
+{
+    // Настройки для YAML
+    "[yaml]": {
+        "editor.tabSize": 2,
+        "editor.insertSpaces": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true
+    },
+
+    // Общие настройки Prettier
+    "prettier.tabWidth": 2,
+    "prettier.useTabs": false,
+    "prettier.singleQuote": false,
+    "prettier.yaml": {
+        "proseWrap": "always"
+    }
+}

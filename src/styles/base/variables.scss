@@ -131,10 +131,10 @@
 
   --space-y-card: #{rem-em.rem(16)}; // 16px (карточки)
   --space-x-card: #{rem-em.rem(16)}; // 16px (карточки)
-  --space-all-card: #{rem-em.rem(16)}; // 16px (карточки)
+  --space-all-card: #{rem-em.rem(4)}; // 16px (карточки)
 
   --space-input: var(--space-sm); // 12px (поля ввода)
-  --space-section: var(--space-lg); // 24px (секции)
+  --space-section: var(--space-xxl); // 24px (секции)
 
   // Специальные случаи
   --space-icon-text: #{rem-em.rem(8)}; // Отступ между иконкой и текстом
@@ -275,6 +275,8 @@
   @media (min-width: $mobile-medium) {
     //--font-size-display-large: #{rem-em.rem(30)};
     --font-size-display-medium: #{rem-em.rem(28)};
+
+    --space-all-card: #{rem-em.rem(8)};
   }
   //1535px и более
   @media (min-width: $laptop-medium) {
@@ -290,6 +292,8 @@
   @media (min-width: $tablet-small) {
     --font-size-display-large: #{rem-em.rem(38)};
     --font-size-display-medium: #{rem-em.rem(30)};
+
+    --space-all-card: #{rem-em.rem(12)};
   }
   //1023px и более
   @media (min-width: $tablet-medium) {
@@ -307,6 +311,8 @@
     --font-size-display-large: #{rem-em.rem(50)};
     --font-size-display-medium: #{rem-em.rem(40)};
     --font-size-display-small: #{rem-em.rem(30)};
+
+    --space-all-card: #{rem-em.rem(16)};
   } //1535px и более
   @media (min-width: $laptop-medium) {
     --font-size-display-large: #{rem-em.rem(54)};

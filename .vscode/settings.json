@@ -1,7 +1,7 @@
 {
   // Базовые настройки редактора (исправлено противоречие с insertSpaces)
   "editor.tabSize": 2,
-  "editor.insertSpaces": true, // Должно быть true, если используете пробелы вместо табов
+  "editor.insertSpaces": true,
   "editor.detectIndentation": false,
 
   // Языковые настройки (исправлены настройки для Astro)
@@ -11,10 +11,10 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[astro]": {
-    "editor.defaultFormatter": "astro-build.astro-vscode", // Рекомендуется использовать официальный форматтер Astro
+    "editor.defaultFormatter": "astro-build.astro-vscode",
     "editor.formatOnSave": true,
     "editor.tabSize": 2,
-    "editor.insertSpaces": true // Согласовано с общими настройками
+    "editor.insertSpaces": true
   },
   "[json]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
@@ -25,19 +25,26 @@
   "prettier.singleQuote": true,
   "prettier.jsxSingleQuote": false,
   "prettier.tabWidth": 2,
-  "prettier.useTabs": false, // Согласовано с insertSpaces: true
+  "prettier.useTabs": false,
   "prettier.yaml.proseWrap": "always",
   "prettier.pluginSearchDirs": ["."],
-  "prettier.astroAllowShorthand": false, // Добавлено для лучшего форматирования Astro
+  "prettier.astroAllowShorthand": false,
 
-  // Удалены дублирующиеся настройки из раздела prettier.overrides
-  // так как они теперь обрабатываются плагином Astro
+  // ===== НОВЫЕ НАСТРОЙКИ ДЛЯ ASTRO-FORMATTER =====
+  "astro.format.enable": true,
+  "astro.format.printWidth": 9999, // Запрещает перенос строк
+  "astro.format.wrapAttributes": "preserve", // Не переносит атрибуты
+  "astro.format.compact": false, // Не сжимает HTML
+  "astro.format.lineWrap": "off", // Полностью отключает переносы
+  "astro.format.semi": false, // Без точек с запятой
+  "astro.format.singleQuote": true, // Одинарные кавычки
+  // ==============================================
 
   // Интеграция с Astro (обновленные настройки)
   "astro.preferences.autoImportUserComponents": true,
   "astro.preferences.typescript.tsdk": "node_modules/typescript/lib",
 
-  // Настройки Path Intellisense (оставлены без изменений)
+  // Настройки Path Intellisense
   "path-intellisense.mappings": {
     "@": "${workspaceFolder}/src",
     "@components": "${workspaceFolder}/src/components",
@@ -52,7 +59,7 @@
   },
   "path-intellisense.autoSlash": true,
 
-  // Дополнительные рекомендации (можно добавить)
+  // Дополнительные рекомендации
   "eslint.validate": ["astro"],
   "files.associations": {
     "*.astro": "astro"

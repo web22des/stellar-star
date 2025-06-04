@@ -2,69 +2,235 @@
 import TitleSections from '../ui/TitleSection.astro';
 const titleSection = 'НАТИВНЫЙ HTML+CSS3+JS';
 const subTitleSection = 'Преимущества использования нативного HTML+CSS3+JS перед конструкторами сайтов. ';
-import Card from '../ui/Card.astro';
 
-// Данные для карточек
-const cardsData = [
-  {
-    cardTitle: 'Гибкость и контроль',
-    cardIcon: '_icon-equalizer2', // Название иконки из IcoMoon
-    cardContent:
-      'Используя нативные языки HTML, CSS3 и JS, разработчики имеют полный контроль над созданием и визуальным оформлением сайта. Они могут свободно манипулировать элементами, стилями и поведением сайта, чтобы точно соответствовать требованиям проекта.',
-  },
-  {
-    cardTitle: 'Производительность',
-    cardIcon: '_icon-stats-dots',
-    cardContent:
-      'Нативный код обычно работает быстрее, чем код, созданный с использованием конструкторов сайтов. Это связано с тем, что нативный код оптимизирован для работы в браузере и может быть более эффективным в использовании ресурсов.',
-  },
-  {
-    cardTitle: 'Изменяемость и настраиваимость',
-    cardIcon: '_icon-shuffle',
-    cardContent:
-      'Нативный код позволяет разработчикам использовать различные библиотеки, фреймворки и инструменты по своему выбору. Это дает большую свободу в выборе и настройке инструментов, которые лучше всего подходят для конкретного проекта.',
-  },
-  {
-    cardTitle: 'Seo-оптимизация',
-    cardIcon: '_icon-magic-wand',
-    cardContent:
-      'Нативный код обеспечивает лучшую SEO-оптимизацию, так как поисковые системы лучше понимают и индексируют контент, созданный с использованием нативных языков. Это может помочь улучшить видимость сайта в поисковых результатах.',
-  },
-  {
-    cardTitle: 'Более гибкий и масштабируемый код',
-    cardIcon: '_icon-tree',
-    cardContent:
-      'Нативный код позволяет разработчикам создавать более гибкий и масштабируемый код. Они могут легко добавлять новые функции, изменять поведение и адаптировать сайт под различные устройства и платформы.',
-  },
-  {
-    cardTitle: 'В заключении',
-    cardIcon: '_icon-flag',
-    cardContent:
-      'Хотя конструкторы сайтов могут быть полезными для быстрого создания простых сайтов без необходимости в глубоких знаниях программирования, использование нативного HTML+CSS3+JS предоставляет больше возможностей для создания уникальных, гибких и производительных веб-сайтов.',
-  },
-];
+//
 ---
 
 <div class="advantages">
-  <div class="advantages">
-    <div class="advantages__container">
-      <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
-      <div class="advantages__card-wrap">
-        {cardsData.map((card, index) => <Card key={`advantage-${index}`} cardTitle={card.cardTitle} cardIcon={card.cardIcon} cardContent={card.cardContent} />)}
+  <div class="advantages__container">
+    <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
+    <!-- Оболочка слайдера -->
+    <div class="advantages__slider swiper">
+      <!-- Двигающаяся часть слайдера -->
+      <div class="advantages__wrapper swiper-wrapper">
+        <!-- Слайд -->
+        <div class="advantages__slide swiper-slide">
+          <h3 class="advantages__card-title">Абсолютная гибкость<span class="_icon-equalizer2"></span></h3>
+          <p class="advantages__card-content">Используя нативные языки HTML, CSS3 и JS, разработчики имеют полный контроль над созданием и визуальным оформлением сайта. Они могут свободно манипулировать элементами,стилями и поведением сайта, чтобы точно соответствовать требованиям проекта.</p>
+        </div>
+        <!-- Слайд -->
+        <div class="advantages__slide swiper-slide">
+          <h3 class="advantages__card-title">Производительность<span class="_icon-stats-dots"></span></h3>
+          <p class="advantages__card-content">Нативный код обычно работает быстрее, чем код, созданный с использованием конструкторов сайтов. Это связано с тем, что нативный код оптимизирован для работы в браузере и может быть более эффективным в использовании ресурсов.</p>
+        </div>
+        <!-- Слайд -->
+        <div class="advantages__slide swiper-slide">
+          <h3 class="advantages__card-title">Полный контроль<span class="_icon-shuffle"></span></h3>
+          <p class="advantages__card-content">Нативный код позволяет разработчикам использовать различные библиотеки, фреймворки и инструменты по своему выбору. Это дает большую свободу в выборе и настройке инструментов, которые лучше всего подходят для конкретного проекта.</p>
+        </div>
+        <!-- Слайд -->
+        <div class="advantages__slide swiper-slide">
+          <h3 class="advantages__card-title">Seo-оптимизация<span class="_icon-magic-wand"></span></h3>
+          <p class="advantages__card-content">Нативный код обеспечивает лучшую SEO-оптимизацию, так как поисковые системы лучше понимают и индексируют контент, созданный с использованием нативных языков. Это может помочь улучшить видимость сайта в поисковых результатах.</p>
+        </div>
+        <!-- Слайд -->
+        <div class="advantages__slide swiper-slide">
+          <h3 class="advantages__card-title">Масштабируемый код<span class="_icon-tree"></span></h3>
+          <p class="advantages__card-content">Нативный код позволяет разработчикам создавать более гибкий и масштабируемый код. Они могут легко добавлять новые функции, изменять поведение и адаптировать сайт под различные устройства и платформы.</p>
+        </div>
+        <!-- Слайд -->
+        <div class="advantages__slide swiper-slide">
+          <h3 class="advantages__card-title">В заключении<span class="_icon-flag"></span></h3>
+          <p class="advantages__card-content">Хотя конструкторы сайтов могут быть полезными для быстрого создания простых сайтов без необходимости в глубоких знаниях программирования, использование нативного HTML+CSS3+JS предоставляет больше возможностей для создания уникальных, гибких и производительных веб-сайтов.</p>
+        </div>
       </div>
+      <!-- Если нужна пагинация -->
+      <div class="swiper-pagination" aria-label="Навигация по слайдам"></div>
+      <!-- Если нужна навигация (влево/вправо) -->
+      <button type="button" class="swiper-button-prev" aria-label="Предыдущий слайд"></button>
+      <button type="button" class="swiper-button-next" aria-label="Следующий слайд"></button>
     </div>
   </div>
 </div>
 
 <style lang="scss">
   .advantages {
+    .swiper-pagination-bullet-active {
+      background: red;
+    }
     &__container {
     }
-
-    &__card-wrap {
+    &__slider {
+      padding: 4px;
+    }
+    &__wrapper {
+      //767px и более
+      @media (min-width: $tablet-small) {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-grid-gap);
+      }
+    }
+    &__slide {
+      min-height: 320px;
+      padding: var(--space-all-card);
+      text-align: center;
+      border-radius: var(--border-radius-medium);
+      background: var(--md-sys-color-surface-variant);
+      box-shadow: var(--box-shadow-Light-02);
+      //359px и более
+      @media (min-width: $tablet-small) {
+        min-height: auto;
+        background: inherit;
+        text-align: start;
+      }
+    }
+    &__card {
+    }
+    &__card-title {
+      color: var(--md-sys-color-primary);
+      font-size: var(--font-size-headline-medium); //26
       display: flex;
-      flex-direction: column;
-      gap: var(--space-xl);
+      flex-direction: column-reverse;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: start;
+        gap: var(--space-icon-text);
+      }
+    }
+    &__card-content {
+      color: var(--md-sys-color-secondary);
+      //padding: var(--space-md) var(--space-xxl);
+      padding-top: var(--space-y-card);
+      padding-bottom: var(--space-y-card);
+      margin-bottom: 24px;
+    }
+    [class*='_icon-'] {
+      display: inline-block;
+      font-size: var(--icon-size-extra-large); // 32px
+      padding-left: 8px;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        font-size: var(--icon-size-medium);
+      }
+    }
+    &:nth-child(odd) {
+      text-align: end;
+    }
+    //========================================================================================================================================================
+
+    .swiper-button-prev,
+    .swiper-button-next {
+      color: var(--md-sys-color-on-surface);
+      top: 24px;
+      &::after {
+        font-size: var(--font-size-xxxl);
+        font-family: 'icomoon';
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        width: 36px;
+        height: 36px;
+        border-radius: var(--border-radius-full);
+        background-color: var(--md-sys-color-on-tertiary);
+        z-index: -1;
+      }
+      //767px и более
+      @media (min-width: $tablet-small) {
+        display: none;
+      }
+    }
+    .swiper-button-prev {
+      &::after {
+        font-family: 'icomoon';
+        content: '\e967';
+      }
+    }
+    .swiper-button-next {
+      &::after {
+        font-family: 'icomoon';
+        content: '\e968';
+      }
     }
   }
 </style>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/scss';
+  import 'swiper/scss/navigation';
+  import 'swiper/scss/pagination';
+  import 'swiper/scss/scrollbar';
+  import type { CSSSelector } from 'swiper/types';
+
+  window.addEventListener('DOMContentLoaded', () => {
+    /**
+     * Инициализирует Swiper с учетом брейкпоинта
+     * @param {string} breakpoint - Медиа-запрос для проверки
+     * @param {string} swiperClass - Класс контейнера Swiper
+     * @param {Object} swiperSettings - Настройки Swiper
+     * @param {Function} [callback] - Колбек после инициализации
+     */
+    const resizableSwiper = (breakpoint: string, swiperClass: string, swiperSettings: object, callback: Function) => {
+      /** @type {Swiper|null} */
+      let swiper: Swiper | null = null;
+
+      const mediaQuery = window.matchMedia(breakpoint);
+
+      const enableSwiper = (className: string | CSSSelector | HTMLElement, settings: object | undefined) => {
+        swiper = new Swiper(className, settings);
+        callback?.(swiper);
+      };
+
+      const checker = () => {
+        if (mediaQuery.matches) {
+          enableSwiper(swiperClass, swiperSettings);
+        } else {
+          swiper?.destroy(true, true);
+          swiper = null;
+        }
+      };
+
+      mediaQuery.addEventListener('change', checker);
+      checker();
+    };
+
+    //Пример колбека (закомментирован)
+    const someFunc = (/** @type {Swiper} */ instance: Swiper) => {
+      instance.on('slideChange', (e) => {
+        console.log('Active index:', instance.activeIndex);
+      });
+    };
+
+    resizableSwiper(
+      '(max-width: 767px)',
+      '.advantages__slider',
+      {
+        modules: [Navigation, Pagination],
+        observer: true,
+        observeParents: true,
+        slidesPerView: 'auto',
+        centeredSlides: true,
+        spaceBetween: 0,
+        speed: 800,
+        loop: true,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          prevEl: '.swiper-button-prev',
+          nextEl: '.swiper-button-next',
+        },
+      },
+      someFunc
+    );
+  });
+
+  // https://github.com/maxdenaro/swiper-on-resize
+  // https://youtu.be/0GM7RN5b-Ek?si=v2UPP7FrI1E0W9mo
+</script>

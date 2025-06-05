@@ -120,7 +120,7 @@
   --space-xs: #{rem-em.rem(8)};
   --space-sm: #{rem-em.rem(12)};
   --space-md: #{rem-em.rem(16)};
-  --space-lg: #{rem-em.rem(24)};
+  --space-lg: #{rem-em.rem(8)}; // 8 - 24
   --space-xl: #{rem-em.rem(32)};
   --space-xxl: #{rem-em.rem(48)};
   --space-xxxl: #{rem-em.rem(64)};
@@ -278,15 +278,13 @@
 
     --space-all-card: #{rem-em.rem(8)};
   }
-  //1535px и более
-  @media (min-width: $laptop-medium) {
-    --font-size-display-large: #{rem-em.rem(32)};
-  }
+
   //599px и более
   @media (min-width: $mobile-large) {
     --font-size-display-large: #{rem-em.rem(34)};
     //--font-size-display-medium: #{rem-em.rem(28)};
     --font-size-display-small: #{rem-em.rem(26)};
+    --space-lg: #{rem-em.rem(12)};
   }
   //767px и более
   @media (min-width: $tablet-small) {
@@ -299,7 +297,9 @@
   @media (min-width: $tablet-medium) {
     --font-size-display-large: #{rem-em.rem(42)};
     --font-size-display-medium: #{rem-em.rem(32)};
+    --space-lg: #{rem-em.rem(16)};
   }
+
   //1279px и более
   @media (min-width: $tablet-large) {
     --font-size-display-large: #{rem-em.rem(46)};
@@ -312,8 +312,10 @@
     --font-size-display-medium: #{rem-em.rem(40)};
     --font-size-display-small: #{rem-em.rem(30)};
 
+    --space-lg: #{rem-em.rem(24)};
     --space-all-card: #{rem-em.rem(16)};
-  } //1535px и более
+  }
+  //1535px и более
   @media (min-width: $laptop-medium) {
     --font-size-display-large: #{rem-em.rem(54)};
     --font-size-display-medium: #{rem-em.rem(42)};

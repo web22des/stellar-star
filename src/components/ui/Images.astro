@@ -14,7 +14,7 @@ interface Props {
   class?: string;
 }
 
-const { src, alt, width, height, loading = 'lazy', format = ['avif'], quality = 80, class: className } = Astro.props;
+const { src, alt, width, height, loading = 'lazy', format = ['webp'], quality = 80, class: className } = Astro.props;
 
 Astro.props;
 // Извлекаем параметры из ImageMetadata (если передан объект)

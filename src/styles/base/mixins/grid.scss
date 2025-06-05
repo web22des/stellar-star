@@ -1,46 +1,47 @@
-@use "../media.scss" as *;
+@use '../media-new.scss' as *;
 
 // Миксин для грид-сетки
 @mixin grid-columns($columns, $gap: 0) {
-    display: grid;
-    grid-template-columns: repeat($columns, 1fr);
-    gap: $gap;
+  display: grid;
+  grid-template-columns: 1fr;
+  //grid-template-columns: repeat($columns, 1fr);
+  gap: var(--space-grid-gap);
+  //599px и более
+  @media (min-width: $mobile-large) {
+    grid-template-columns: repeat(min($columns, 2), 1fr);
+  }
 
-    // Адаптация для планшетов
-    @media (max-width: $notebook-small) {
-        grid-template-columns: repeat(min($columns, 2), 1fr);
-    }
-
-    // Адаптация для мобильных (больших)
-    @media (max-width: $mobile) {
-        grid-template-columns: repeat(min($columns, 1), 1fr);
-    }
-
-    // Адаптация для маленьких мобильных
-    // @media (max-width: $mobile-small) {
-    //     grid-template-columns: 1fr;
-    // }
+  //767px и более
+  @media (min-width: $tablet-small) {
+  }
+  //1023px и более
+  @media (min-width: $tablet-medium) {
+    grid-template-columns: repeat(min($columns, 3), 1fr);
+  }
+  // Адаптация для маленьких мобильных
+  // @media (max-width: $mobile-small) {
+  // }
 }
 
 // Готовые миксины для конкретного количества колонок
 @mixin grid-1-columns($gap: 0) {
-    @include grid-columns(1, $gap);
+  @include grid-columns(1, $gap);
 }
 
 @mixin grid-2-columns($gap: 0) {
-    @include grid-columns(2, $gap);
+  @include grid-columns(2, $gap);
 }
 
 @mixin grid-3-columns($gap: 0) {
-    @include grid-columns(3, $gap);
+  @include grid-columns(3, $gap);
 }
 
 @mixin grid-4-columns($gap: 0) {
-    @include grid-columns(4, $gap);
+  @include grid-columns(4, $gap);
 }
 
 @mixin grid-6-columns($gap: 0) {
-    @include grid-columns(6, $gap);
+  @include grid-columns(6, $gap);
 }
 
 // Как использовать:

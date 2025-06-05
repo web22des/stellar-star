@@ -1,6 +1,6 @@
 ---
-//import { Image } from 'astro:assets';
-import Images from '../ui/Images.astro';
+import { Image } from 'astro:assets';
+
 import TitleSections from '../ui/TitleSection.astro';
 
 const titleSection = 'Виды сайтов';
@@ -19,7 +19,7 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
     <div class="website-types__card">
       <div class="website-types__wrap-images _ibg">
-        <Images class="website-types__images _img" src={webTypes01} alt="foto" />
+        <Image class="website-types__images _img" src={webTypes01} alt="foto" />
       </div>
       <div class="website-types__content">
         <h3 class="website-types__title">Лендинг</h3>
@@ -32,7 +32,7 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     </div>
     <div class="website-types__card">
       <div class="website-types__wrap-images _ibg">
-        <Images class="website-types__images _img" src={webTypes02} alt="foto" />
+        <Image class="website-types__images _img" src={webTypes02} alt="foto" />
       </div>
       <div class="website-types__content">
         <h3 class="website-types__title">Тематический сайт</h3>
@@ -45,7 +45,7 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     </div>
     <div class="website-types__card">
       <div class="website-types__wrap-images _ibg">
-        <Images class="website-types__images _img" src={webTypes03} alt="foto" />
+        <Image class="website-types__images _img" src={webTypes03} alt="foto" />
       </div>
       <div class="website-types__content">
         <h3 class="website-types__title">Сайт визитка</h3>
@@ -58,7 +58,7 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     </div>
     <div class="website-types__card">
       <div class="website-types__wrap-images _ibg">
-        <Images class="website-types__images _img" src={webTypes04} alt="foto" />
+        <Image class="website-types__images _img" src={webTypes04} alt="foto" />
       </div>
       <div class="website-types__content">
         <h3 class="website-types__title">Корпоративный сайт</h3>
@@ -71,7 +71,7 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     </div>
     <div class="website-types__card">
       <div class="website-types__wrap-images _ibg">
-        <Images class="website-types__images _img" src={webTypes05} alt="foto" />
+        <Image class="website-types__images _img" src={webTypes05} alt="foto" />
       </div>
       <div class="website-types__content">
         <h3 class="website-types__title">Интернет магазин</h3>
@@ -84,7 +84,7 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     </div>
     <div class="website-types__card">
       <div class="website-types__wrap-images _ibg">
-        <Images class="website-types__images _img" src={webTypes06} alt="foto" />
+        <Image class="website-types__images _img" src={webTypes06} alt="foto" />
       </div>
       <div class="website-types__content">
         <h3 class="website-types__title">Блог</h3>

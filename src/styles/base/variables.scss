@@ -26,6 +26,9 @@
   --font-size-xxl: #{rem-em.rem(26)};
   --font-size-xxxl: #{rem-em.rem(28)};
 
+  --font-size-hero-large: #{rem-em.rem(40)}; // 40 - 96
+  --font-size-hero-medium: #{rem-em.rem(24)}; // 24 -
+  --font-size-hero-small: #{rem-em.rem(18)};
   // Matherial Theme
   --font-size-body-small: #{rem-em.rem(12)};
   --font-size-body-medium: #{rem-em.rem(14)};
@@ -38,12 +41,12 @@
   --font-size-lable-large: #{rem-em.rem(11)};
 
   --font-size-title-small: #{rem-em.rem(14)}; // - 14
-  --font-size-title-medium: #{rem-em.rem(16)}; // - 16
-  --font-size-title-large: #{rem-em.rem(22)}; // - 22
+  --font-size-title-medium: #{rem-em.rem(12)}; //12 - 16
+  --font-size-title-large: #{rem-em.rem(14)}; //14 - 22
 
   --font-size-headline-small: #{rem-em.rem(24)}; // - 24
   --font-size-headline-medium: #{rem-em.rem(28)}; //  - 28
-  --font-size-headline-large: #{rem-em.rem(32)}; // 22 - 32
+  --font-size-headline-large: #{rem-em.rem(22)}; // 22 - 32
 
   --font-size-display-large: #{rem-em.rem(32)}; // 32 - 57
   --font-size-display-medium: #{rem-em.rem(28)}; // 28 - 45
@@ -119,7 +122,7 @@
   --space-xxs: #{rem-em.rem(4)};
   --space-xs: #{rem-em.rem(8)};
   --space-sm: #{rem-em.rem(12)};
-  --space-md: #{rem-em.rem(16)};
+  --space-md: #{rem-em.rem(6)}; // 6 - 16
   --space-lg: #{rem-em.rem(8)}; // 8 - 24
   --space-xl: #{rem-em.rem(32)};
   --space-xxl: #{rem-em.rem(48)};
@@ -137,6 +140,7 @@
   --space-section: var(--space-xxl); // 24px (секции)
 
   // Специальные случаи
+  --space-icon-text-large: #{rem-em.rem(24)}; // Отступ между иконкой и текстом
   --space-icon-text: #{rem-em.rem(8)}; // Отступ между иконкой и текстом
   --space-grid-gap: var(--space-lg); // Отступы в grid-сетках
 
@@ -273,25 +277,42 @@
 
   //411px и более
   @media (min-width: $mobile-medium) {
-    //--font-size-display-large: #{rem-em.rem(30)};
-    --font-size-display-medium: #{rem-em.rem(28)};
+    --font-size-hero-large: #{rem-em.rem(52)};
+
+    --font-size-headline-large: #{rem-em.rem(22)};
+    --font-size-display-medium: #{rem-em.rem(20)};
+
+    --font-size-title-medium: #{rem-em.rem(16)};
+
+    --font-size-title-large: #{rem-em.rem(16)};
 
     --space-all-card: #{rem-em.rem(8)};
+    --space-icon-text-large: #{rem-em.rem(28)};
   }
 
   //599px и более
   @media (min-width: $mobile-large) {
     --font-size-display-large: #{rem-em.rem(34)};
-    //--font-size-display-medium: #{rem-em.rem(28)};
     --font-size-display-small: #{rem-em.rem(26)};
+
+    --font-size-title-large: #{rem-em.rem(18)};
+
+    --space-icon-text-large: #{rem-em.rem(36)};
     --space-lg: #{rem-em.rem(12)};
   }
   //767px и более
   @media (min-width: $tablet-small) {
+    --font-size-hero-large: #{rem-em.rem(60)};
+
     --font-size-display-large: #{rem-em.rem(38)};
     --font-size-display-medium: #{rem-em.rem(30)};
 
+    --font-size-headline-large: #{rem-em.rem(28)};
+    --font-size-title-large: #{rem-em.rem(20)};
+
+    --space-icon-text-large: #{rem-em.rem(40)};
     --space-all-card: #{rem-em.rem(12)};
+    --space-md: #{rem-em.rem(12)};
   }
   //1023px и более
   @media (min-width: $tablet-medium) {
@@ -305,6 +326,7 @@
     --font-size-display-large: #{rem-em.rem(46)};
     --font-size-display-medium: #{rem-em.rem(36)};
     --font-size-display-small: #{rem-em.rem(28)};
+    --font-size-title-large: #{rem-em.rem(22)};
   }
   //1365px и более
   @media (min-width: $laptop-small) {
@@ -312,6 +334,7 @@
     --font-size-display-medium: #{rem-em.rem(40)};
     --font-size-display-small: #{rem-em.rem(30)};
 
+    --space-md: #{rem-em.rem(16)};
     --space-lg: #{rem-em.rem(24)};
     --space-all-card: #{rem-em.rem(16)};
   }
@@ -326,5 +349,7 @@
     --font-size-display-large: #{rem-em.rem(57)};
     --font-size-display-medium: #{rem-em.rem(45)};
     --font-size-display-small: #{rem-em.rem(36)};
+
+    --font-size-headline-large: #{rem-em.rem(32)};
   }
 }

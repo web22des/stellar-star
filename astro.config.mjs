@@ -38,9 +38,11 @@ export default defineConfig({
 					@use "@styles/themes/v_01/dark.scss";
 					@use "@styles/base/media-new" as *;
 					@use "@styles/base/variables" as *;
+          @use "@styles/utils/_focus-visible.scss" as *;
 					@use "@styles/fonts/fonts.scss";
 					@use "@styles/fonts/icons.scss";
 					@use "@styles/base/common.scss";
+          @use "@styles/base/button.scss";
 					`,
           // 2. Настройки встроенного Sass
           implementation: sass,

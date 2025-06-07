@@ -25,18 +25,17 @@
   // 	],
   // 	"description": "Log output to console"
   // }
+  "Обертка для стилей в компоненте": {
+    "scope": "astro",
+    "prefix": "style-lang-scss",
+    "body": ["<style lang=\"scss\">", "${1}", "</style>"],
+    "description": "Обертка для стилей в компоненте"
+  },
+
   "Заголовок секции": {
     "scope": "astro",
     "prefix": "TitleSection",
-    "body": [
-      "---",
-      "import TitleSections from '../ui/TitleSection.astro';",
-      "const titleSection = '${1}';",
-      "const subTitleSection = '${2}';",
-      "---",
-      "",
-      "<TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />"
-    ],
+    "body": ["---", "import TitleSections from '../ui/TitleSection.astro';", "const titleSection = '${1}';", "const subTitleSection = '${2}';", "---", "", "<TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />"],
     "description": "Заголовок секции"
   },
   //Media

@@ -1,0 +1,209 @@
+---
+//import "@styles/components/hero.scss"
+import { Image } from 'astro:assets';
+
+import HeroImg from '@assets/images/content/hero-01.png';
+---
+
+<div class="hero">
+  <div class="hero__container">
+    <div class="hero__header">
+      <h1 class="hero__title">Сайты в ваш бизнес</h1>
+      <h2 class="hero__subtitle"><span class="hero__subtitle--mobile">Уникальные <span class="accent">продающие сайты</span></span> без использования конструкторов</h2>
+    </div>
+    <div class="hero__body">
+      <div class="hero__wrap-img _ibg">
+        <Image class="hero__img _img" src={HeroImg} alt="главное изображение страницы" />
+      </div>
+      <div class="hero__info">
+        <h3 class="hero__info-title">Гибкие цены, акции и пакетные предложения</h3>
+        <ul class="hero__info-list">
+          <li class="hero__info-item"><span class="_icon-arrow-right2"></span>Современный</li>
+          <li class="hero__info-item"><span class="_icon-arrow-right2"></span>Адаптивный</li>
+          <li class="hero__info-item"><span class="_icon-arrow-right2"></span>Кроссбраузерный</li>
+          <li class="hero__info-item"><span class="_icon-arrow-right2"></span>Масштабируемый</li>
+          <li class="hero__info-item"><span class="_icon-arrow-right2"></span>Индивидуальный</li>
+        </ul>
+      </div>
+      <div class="hero__info-wrap-btn">
+        <button type="submit" class="button button--filled">Узнать стоимость</button>
+        <span class="hero__info-text">Предварительный расчёт за 15 минут</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  // @use '@styles/base/global.scss' as *;
+  @use '@styles/base/mixins/rem-em' as rem-em;
+  @use '@styles/base/mixins/grid.scss' as grid;
+
+  .hero {
+    overflow: hidden;
+    &__container {
+      //display: flex;
+    }
+
+    &__header {
+      text-shadow: var(--text-shadow-Light-04);
+      margin-bottom: var(--space-xl);
+      text-align: center;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        //text-align: start;
+      }
+    }
+
+    &__title {
+      font-size: var(--font-size-hero-large);
+
+      line-height: var(--line-height-base);
+      text-transform: uppercase;
+      color: var(--md-sys-color-primary);
+      margin-bottom: var(--space-sm);
+
+      // @media (max-width: media.$mobile-small) {
+      // }
+    }
+
+    &__subtitle {
+      font-size: var(--font-size-display-small);
+      //max-width: rem-em.rem(552);
+      color: var(--md-sys-color-secondary);
+      // @media (max-width: media.$desktop) {
+      //   max-width: 100%;
+      // }
+      // @media (max-width: media.$mobile-small) {
+      //   display: none;
+      // }
+    }
+
+    &__subtitle--mobile {
+      // @media (max-width: media.$mobile-small) {
+      //   display: block;
+      // }
+    }
+
+    &__body {
+      //position: relative;
+      //display: flex;
+      // flex-direction: column;
+      // justify-content: space-between;
+      //1023px и более
+      @media (min-width: $tablet-small) {
+        //@include grid.grid-2-columns(24px);
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        align-items: end;
+      }
+      // @media (max-width: media.$desktop) {
+      //   flex-direction: column-reverse;
+      // }
+    }
+
+    &__info {
+    }
+
+    &__info-title {
+      color: var(--md-sys-color-secondary);
+      font-family: var(--font-family-heading);
+      font-size: var(--font-size-hero-medium);
+      //margin-bottom: var(--space-lg);
+      margin-top: 24px;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    &__info-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-grid-gap);
+      //border-radius: var(--border-radius-medium);
+      margin-bottom: 24px;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        display: block;
+      }
+      //margin-bottom: var(--space-xxl);
+      // @media (max-width: media.$desktop) {
+      //   display: flex;
+      //   flex-wrap: wrap;
+      //   justify-content: center;
+      //   gap: 4px 24px;
+      //}
+    }
+
+    &__info-item {
+      position: relative;
+      color: var(--md-sys-color-secondary);
+      font-size: var(--font-size-title-medium);
+      padding-top: var(--space-md);
+      box-shadow: var(--box-shadow-Light-01);
+      border-radius: var(--border-radius-medium);
+      padding: var(--space-all-card);
+      order: 2;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        padding-top: 0;
+        box-shadow: none;
+      }
+
+      // &::before {
+      //   position: absolute;
+      //   font-family: 'icomoon';
+      //   font-size: 16px;
+      //   //font-size: inherit;
+      //   left: var(--space-all-card);
+      //   content: '\ea52';
+      // }
+    }
+
+    &__info-wrap-btn {
+      // display: flex;
+      // flex-direction: column;
+      @include grid.grid-2-columns(24px);
+      align-items: center;
+      text-align: center;
+      gap: var(--space-lg);
+      order: 3;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        flex-direction: row;
+        grid-column: span 2;
+      }
+    }
+
+    &__info-text {
+      display: inline-block;
+      //max-width: rem-em.rem(142);
+      color: var(--md-sys-color-tertiary);
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-bold);
+      letter-spacing: var(--letter-spacing-wide);
+      //1279px и более
+      @media (min-width: $tablet-large) {
+        //width: 100%;
+      }
+    }
+
+    &__wrap-img {
+      box-shadow: none;
+      order: 1;
+      //767px и более
+      @media (min-width: $tablet-small) {
+      }
+    }
+    &__img {
+    }
+
+    [class*='_icon-'] {
+      color: var(--md-sys-color-primary);
+      font-size: var(--icon-size-small);
+      //margin-right: var(--space-xs);
+      padding-right: var(--space-icon-text);
+    }
+    .button {
+      width: 100%;
+    }
+  }
+</style>

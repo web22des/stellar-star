@@ -46,17 +46,10 @@
 
   .contact-form {
     &__form-wrap {
-      // display: flex;
-      // flex-wrap: wrap;
-      // row-gap: 40px;
-      // column-gap: 20px;
-      // @media (max-width: rem-em.em(768)) {
-      //     row-gap: 24px;
-      // }
     }
     &__grid {
-      @include grid.grid-2-columns(var(--space-grid-gap));
       margin-bottom: var(--space-md);
+      @include grid.grid-2-columns(var(--space-grid-gap));
     }
 
     &__col {
@@ -149,10 +142,48 @@
 
     &__footer {
       padding-top: var(--space-md);
-      // width: 100%;
-      // @media (max-width: rem-em.em(768)) {
-      //     text-align: center;
-      // }
     }
   }
 </style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('.contact-form__form');
+    const consentCheckbox = document.getElementById('consent');
+    const submitButton = form.querySelector('.button--filled');
+
+    // Проверяем состояние чекбокса при загрузке
+    updateButtonState();
+
+    // Обновляем состояние кнопки при изменении чекбокса
+    consentCheckbox.addEventListener('change', updateButtonState);
+
+    // Дополнительная проверка при отправке формы
+    form.addEventListener('submit', function (e) {
+      if (!consentCheckbox.checked) {
+        e.preventDefault();
+        // Можно добавить визуальное уведомление
+        alert('Пожалуйста, дайте согласие на обработку данных');
+      }
+    });
+
+    function updateButtonState() {
+      submitButton.disabled = !consentCheckbox.checked;
+      submitButton.setAttribute('aria-disabled', !consentCheckbox.checked);
+    }
+  });
+
+  consentCheckbox.addEventListener('change', function () {
+    updateButtonState();
+    if (!this.checked) {
+      // Показываем подсказку около чекбокса
+      const warning = document.createElement('span');
+      warning.className = 'consent-warning';
+      warning.textContent = 'Необходимо ваше согласие';
+      this.closest('label').appendChild(warning);
+    } else {
+      const warning = document.querySelector('.consent-warning');
+      if (warning) warning.remove();
+    }
+  });
+</script>

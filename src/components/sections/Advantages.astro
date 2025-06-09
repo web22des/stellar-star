@@ -72,7 +72,7 @@ const subTitleSection = 'Преимущества использования н�
       }
     }
     &__slide {
-      min-height: 320px;
+      //min-height: 320px;
       padding: var(--space-all-card);
       text-align: center;
       border-radius: var(--border-radius-medium);
@@ -102,15 +102,21 @@ const subTitleSection = 'Преимущества использования н�
     }
     &__card-content {
       color: var(--md-sys-color-secondary);
-      //padding: var(--space-md) var(--space-xxl);
       padding-top: var(--space-y-card);
       padding-bottom: var(--space-y-card);
-      margin-bottom: 24px;
+      // margin-bottom: 24px;
+      // //767px и более
+      // @media (min-width: $tablet-small) {
+      //   padding-bottom: 0;
+      //   margin-bottom: 0;
+      // }
     }
     [class*='_icon-'] {
       display: inline-block;
-      font-size: var(--icon-size-extra-large); // 32px
-      padding-left: 8px;
+      font-size: var(--icon-size-large);
+      //font-size: var(--icon-size-extra-large); // 32px
+      //padding-left: 8px;
+
       //767px и более
       @media (min-width: $tablet-small) {
         font-size: var(--icon-size-medium);

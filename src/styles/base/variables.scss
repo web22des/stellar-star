@@ -323,6 +323,7 @@
 
   //1279px и более
   @media (min-width: $tablet-large) {
+    --font-size-hero-large: #{rem-em.rem(68)};
     --font-size-display-large: #{rem-em.rem(46)};
     --font-size-display-medium: #{rem-em.rem(36)};
     --font-size-display-small: #{rem-em.rem(28)};
@@ -330,6 +331,7 @@
   }
   //1365px и более
   @media (min-width: $laptop-small) {
+    --font-size-hero-large: #{rem-em.rem(72)};
     --font-size-display-large: #{rem-em.rem(50)};
     --font-size-display-medium: #{rem-em.rem(40)};
     --font-size-display-small: #{rem-em.rem(30)};
@@ -340,12 +342,14 @@
   }
   //1535px и более
   @media (min-width: $laptop-medium) {
+    --font-size-hero-large: #{rem-em.rem(80)};
     --font-size-display-large: #{rem-em.rem(54)};
     --font-size-display-medium: #{rem-em.rem(42)};
     --font-size-display-small: #{rem-em.rem(32)};
   }
   //1919px и более
   @media (min-width: $laptop-large) {
+    --font-size-hero-large: #{rem-em.rem(96)};
     --font-size-display-large: #{rem-em.rem(57)};
     --font-size-display-medium: #{rem-em.rem(45)};
     --font-size-display-small: #{rem-em.rem(36)};

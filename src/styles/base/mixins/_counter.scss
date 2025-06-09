@@ -3,26 +3,26 @@
 /// @param {String} $format - Формат вывода
 /// @param {Number} $start [1] - С какого числа начинать
 /// @param {String} $delimiter ['. '] - Разделитель после цифры
-@mixin counter($name: item, $format, $start: 1, $delimiter: ". ") {
-    list-style: none;
-    counter-reset: #{$name} #{$start - 1}; // Начинаем с ($start - 1), так как increment добавит +1
+@mixin counter($name: item, $format, $start: 1, $delimiter: '. ') {
+  list-style: none;
+  counter-reset: #{$name} #{$start - 1}; // Начинаем с ($start - 1), так как increment добавит +1
 
-    > * {
-        counter-increment: #{$name};
-        position: relative; // Для позиционирования ::before
+  > * {
+    counter-increment: #{$name};
+    position: relative; // Для позиционирования ::before
 
-        &::before {
-            content: counter(#{$name}, #{$format}) #{$delimiter};
-            position: absolute;
-        }
+    &::before {
+      content: counter(#{$name}, #{$format}) #{$delimiter};
+      position: absolute;
     }
+  }
 }
 
 // Как использовать:
 // Сделать импорт миксина:
 // @use "../base/mixins/counter" as counter;
 // @include counter.counter(
-//$name: "dev-process",
+//$name: "name-counter",
 //$format: decimal-leading-zero,
 //$start: 1,
 //$delimiter: " ");

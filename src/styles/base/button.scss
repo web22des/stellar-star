@@ -31,92 +31,102 @@
     }
 
     &:disabled {
-    }
-  }
+      opacity: 0.6;
+      pointer-events: none;
+      cursor: not-allowed;
+      background-color: var(--md-sys-color-outline);
 
-  &--outlined {
-    &:hover {
-    }
-
-    &:focus {
-    }
-
-    &:active {
-    }
-
-    &:disabled {
-    }
-  }
-
-  &--elevated {
-    background-color: transparent;
-
-    &:hover {
+      // Убираем эффекты hover/focus
+      &:hover,
+      &:focus {
+        box-shadow: none;
+        transform: none;
+      }
     }
 
-    &:focus {
+    &--outlined {
+      &:hover {
+      }
+
+      &:focus {
+      }
+
+      &:active {
+      }
+
+      &:disabled {
+      }
     }
 
-    &:active {
+    &--elevated {
+      background-color: transparent;
+
+      &:hover {
+      }
+
+      &:focus {
+      }
+
+      &:active {
+      }
+
+      &:disabled {
+      }
     }
 
-    &:disabled {
-    }
-  }
+    &--text {
+      background-color: transparent;
+      color: var(--md-sys-color-primary);
+      &::after {
+        font-family: 'icomoon';
+        content: '\ea3c';
+        width: 18px;
+        height: 18px;
+        color: inherit;
+        bottom: 0;
+        right: 0;
+      }
 
-  &--text {
-    background-color: transparent;
-    color: var(--md-sys-color-primary);
-    &::after {
-      font-family: 'icomoon';
-      content: '\ea3c';
-      width: 18px;
-      height: 18px;
-      color: inherit;
-      bottom: 0;
-      right: 0;
+      &:hover {
+        background: var(--State-Layers-Primary-Opacity-08, rgba(101, 85, 143, 0.08));
+      }
+
+      &:focus {
+      }
+
+      &:active {
+      }
+
+      &:disabled {
+      }
+    }
+    &--tonal {
+      background-color: var(--md-sys-color-error);
+
+      &:hover {
+      }
+
+      &:focus {
+      }
+
+      &:active {
+      }
+
+      &:disabled {
+      }
+    }
+    // Размеры
+    &--sm {
+      padding: var(--space-xs) var(--space-sm);
+      font-size: var(--font-size-sm);
     }
 
-    &:hover {
-      background: var(--State-Layers-Primary-Opacity-08, rgba(101, 85, 143, 0.08));
+    &--lg {
+      padding: var(--space-md) var(--space-lg);
+      font-size: var(--font-size-lg);
     }
-
-    &:focus {
-    }
-
-    &:active {
-    }
-
-    &:disabled {
-    }
-  }
-  &--tonal {
-    background-color: var(--md-sys-color-error);
-
-    &:hover {
-    }
-
-    &:focus {
-    }
-
-    &:active {
-    }
-
-    &:disabled {
-    }
-  }
-  // Размеры
-  &--sm {
-    padding: var(--space-xs) var(--space-sm);
-    font-size: var(--font-size-sm);
-  }
-
-  &--lg {
-    padding: var(--space-md) var(--space-lg);
-    font-size: var(--font-size-lg);
   }
 }
-
 /* 
 <button class="button">Основная</button>
 <button class="button button--secondary">Вторичная</button>

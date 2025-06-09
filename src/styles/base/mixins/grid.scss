@@ -1,26 +1,25 @@
+@use 'sass:math';
 @use '../media-new.scss' as *;
 
 // Миксин для грид-сетки
 @mixin grid-columns($columns, $gap: 0) {
   display: grid;
-  grid-template-columns: 1fr;
-  //grid-template-columns: repeat($columns, 1fr);
+  //grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, 1fr);
   gap: var(--space-grid-gap);
   //599px и более
   @media (min-width: $mobile-large) {
-    grid-template-columns: repeat(min($columns, 2), 1fr);
+    grid-template-columns: repeat(round(math.min($columns, 2)), 1fr);
   }
 
   //767px и более
   @media (min-width: $tablet-small) {
+    grid-template-columns: repeat(round(math.min($columns, 2)), 1fr);
   }
   //1023px и более
   @media (min-width: $tablet-medium) {
-    grid-template-columns: repeat(min($columns, 3), 1fr);
+    grid-template-columns: repeat(round(math.min($columns, 3)), 1fr);
   }
-  // Адаптация для маленьких мобильных
-  // @media (max-width: $mobile-small) {
-  // }
 }
 
 // Готовые миксины для конкретного количества колонок

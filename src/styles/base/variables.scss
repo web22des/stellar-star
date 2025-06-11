@@ -109,7 +109,8 @@
   --linear-gradient-primary: 92deg, #c0b7e8 -1.02%, #8176af 36.25%;
   --linear-gradient-accent: linear-gradient(269deg, #c0b7e8 -3.72%, #8176af 82.17%);
   --linear-gradient-line-base: linear-gradient(to right, #343045 0%, #343045 0%, #c0b7e8 34.9%, #8176af 68.75%, #343045 100%);
-  --radial-gradient-base: radial-gradient(50% 50% at 50% 50%, #403a5f 0%, #211e2e 100%);
+  //--radial-gradient-base: radial-gradient(50% 50% at 50% 50%, #403a5f 0%, #211e2e 100%);
+  --radial-gradient-base: radial-gradient(circle, var(--md-sys-color-primary-container) 0%, var(--md-sys-color-tertiary-container) 50%, var(--md-sys-color-secondary-container) 100%);
 
   // =============================================
   // 3. ОТСТУПЫ И РАЗМЕРЫ

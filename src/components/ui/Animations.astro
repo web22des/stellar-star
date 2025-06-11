@@ -1,0 +1,83 @@
+---
+// src/components/ScrollAnimation.astro
+// Этот компонент можно импортировать в любую страницу или лэйаут
+---
+
+<style lang="scss" is:global>
+  /* Стили остаются такими же, как у тебя */
+  $ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  $fade-distance: 100px;
+  $transition-duration: 1.3s;
+
+  .fade {
+    opacity: 0;
+    transform: translateZ(0);
+    transition:
+      opacity $transition-duration $ease-out,
+      transform $transition-duration $ease-out;
+    will-change: opacity, transform;
+
+    &--from-top {
+      transform: translateY(-$fade-distance);
+    }
+    &--from-bottom {
+      transform: translateY($fade-distance);
+    }
+    &--from-left {
+      transform: translateX(-$fade-distance);
+    }
+    &--from-right {
+      transform: translateX($fade-distance);
+    }
+    &--delay-1 {
+      transition-delay: 0.2s;
+    }
+    &--delay-2 {
+      transition-delay: 0.4s;
+    }
+    &--fast {
+      transition-duration: 0.3s;
+    }
+    &--slow {
+      transition-duration: 1s;
+    }
+    &--active {
+      opacity: 1;
+      transform: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      &,
+      &--active {
+        transition: none !important;
+      }
+    }
+  }
+</style>
+
+<script is:inline>
+  function initScrollAnimation({ baseClass = 'fade', activeClass = 'fade--active', threshold = 0.7, animateOnce = true } = {}) {
+    const elements = document.querySelectorAll(`.${baseClass}`);
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add(activeClass);
+            if (animateOnce) observer.unobserve(entry.target);
+          } else if (!animateOnce) {
+            entry.target.classList.remove(activeClass);
+          }
+        });
+      },
+      { threshold }
+    );
+
+    elements.forEach((element) => observer.observe(element));
+  }
+
+  // Запускаем после полной загрузки DOM
+  document.addEventListener('DOMContentLoaded', () => {
+    initScrollAnimation();
+  });
+</script>

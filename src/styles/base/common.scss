@@ -11,6 +11,7 @@ body {
   line-height: var(--line-height-base);
   transition: background-color 0.7s ease, color 0.7s ease; // Плавное переключение темы
 }
+
 // Обертка для прижания подвала книзу
 .wrapper {
   min-height: 100vh; /* Минимальная высота = высота экрана */
@@ -82,4 +83,13 @@ input[type='radio'].visually-hidden {
     object-fit: cover; // Масштабирует с обрезкой
     object-position: center; // Центрирует (по умолчанию)
   }
+}
+
+.container-animate-primary {
+  min-height: 200px;
+  background: var(--radial-gradient-base);
+}
+
+.animate {
+  background: var(--radial-gradient-base);
 }

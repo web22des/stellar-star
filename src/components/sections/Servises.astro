@@ -1,0 +1,226 @@
+---
+import { Image } from 'astro:assets';
+import TitleSections from '../ui/TitleSection.astro';
+
+const titleSection = 'Услуги, нацеленные на результат';
+const subTitleSection = 'Обладая опытом  в своей области, я стремлюсь к эффективной и быстрой реализации проектов. Мой приоритет - это скорость выполнения без потери качества и внимания к деталям. Каждый проект будет выполнен с максимальной тщательностью и в срок.';
+
+import services01 from '@assets/images/content/serviсes/serviсes-01.jpg';
+---
+
+<div class="services animate">
+  <div class="services__container">
+    <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
+    <!-- Оболочка слайдера -->
+    <div class="services__slider swiper mobile-slider-card">
+      <!-- Двигающаяся часть слайдера -->
+      <div class="services__wrapper swiper-wrapper">
+        <!-- Слайд -->
+        <div class="services__slide swiper-slide">
+          <div class="services__card">
+            <h3 class="services__card-title">Дизайн</h3>
+            <div class="services__card-body">
+              <div class="services__card-images _ibg">
+                <Image class="services__card-img _img" src={services01} alt="foto services" />
+              </div>
+              <div class="services__card-content">
+                <p class="services__card-text">Создам уникальный и привлекательный визуальный облик вашего сайта, обеспечивая его функциональность и удобство исполь...</p>
+              </div>
+              <div class="services__card-footer">
+                <button type="submit" class="button button--text">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Слайд -->
+        <div class="services__slide swiper-slide">
+          <div class="services__card">
+            <h3 class="services__card-title">Верстка</h3>
+            <div class="services__card-body">
+              <div class="services__card-images _ibg">
+                <Image class="services__card-img _img" src={services01} alt="foto services" />
+              </div>
+              <div class="services__card-content">
+                <p class="services__card-text">Создам уникальный и привлекательный визуальный облик вашего сайта, обеспечивая его функциональность и удобство исполь...</p>
+              </div>
+              <div class="services__card-footer">
+                <button type="submit" class="button button--text">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Слайд -->
+        <div class="services__slide swiper-slide">
+          <div class="services__card">
+            <h3 class="services__card-title">Интеграция CMS</h3>
+            <div class="services__card-body">
+              <div class="services__card-images _ibg">
+                <Image class="services__card-img _img" src={services01} alt="foto services" />
+              </div>
+              <div class="services__card-content">
+                <p class="services__card-text">Создам уникальный и привлекательный визуальный облик вашего сайта, обеспечивая его функциональность и удобство исполь...</p>
+              </div>
+              <div class="services__card-footer">
+                <button type="submit" class="button button--text">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Слайд -->
+        <div class="services__slide swiper-slide">
+          <div class="services__card">
+            <h3 class="services__card-title">Публикация в сети</h3>
+            <div class="services__card-body">
+              <div class="services__card-images _ibg">
+                <Image class="services__card-img _img" src={services01} alt="foto services" />
+              </div>
+              <div class="services__card-content">
+                <p class="services__card-text">Создам уникальный и привлекательный визуальный облик вашего сайта, обеспечивая его функциональность и удобство исполь...</p>
+              </div>
+              <div class="services__card-footer">
+                <button type="submit" class="button button--text">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Слайд -->
+        <div class="services__slide swiper-slide">
+          <div class="services__card">
+            <h3 class="services__card-title">Контент менеджмент</h3>
+            <div class="services__card-body">
+              <div class="services__card-images _ibg">
+                <Image class="services__card-img _img" src={services01} alt="foto services" />
+              </div>
+              <div class="services__card-content">
+                <p class="services__card-text">Создам уникальный и привлекательный визуальный облик вашего сайта, обеспечивая его функциональность и удобство исполь...</p>
+              </div>
+              <div class="services__card-footer">
+                <button type="submit" class="button button--text">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Слайд -->
+        <div class="services__slide swiper-slide">
+          <div class="services__card">
+            <h3 class="services__card-title">Поддержка</h3>
+            <div class="services__card-body">
+              <div class="services__card-images _ibg">
+                <Image class="services__card-img _img" src={services01} alt="foto services" />
+              </div>
+              <div class="services__card-content">
+                <p class="services__card-text">Создам уникальный и привлекательный визуальный облик вашего сайта, обеспечивая его функциональность и удобство исполь...</p>
+              </div>
+              <div class="services__card-footer">
+                <button type="submit" class="button button--text">Подробнее</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Если нужна пагинация -->
+      <div class="swiper-pagination" aria-label="Навигация по слайдам"></div>
+      <!-- Если нужна навигация (влево/вправо) -->
+      <!-- <button type="button" class="swiper-button-prev" aria-label="Предыдущий слайд"></button>
+      <button type="button" class="swiper-button-next" aria-label="Следующий слайд"></button> -->
+    </div>
+  </div>
+
+  <style lang="scss">
+    // services.scss
+    @use '@styles/base/mixins/grid.scss' as grid;
+
+    .services {
+      &__container {
+      }
+
+      &__slider {
+      }
+
+      &__wrapper {
+        display: flex;
+        padding: var(--space-md) 1px;
+        //599px и более
+        @media (min-width: $mobile-large) {
+          @include grid.grid-2-columns(var(--space-grid-gap));
+        }
+        //1023px и более
+        @media (min-width: $tablet-medium) {
+          @include grid.grid-3-columns(var(--space-grid-gap));
+        }
+      }
+
+      &__slide {
+        max-width: 450px;
+        //599px и более
+        @media (min-width: $mobile-large) {
+          max-width: 100%;
+        }
+      }
+
+      &__card {
+        padding: var(--space-all-card);
+        box-shadow: var(--box-shadow-Light-01);
+        border-radius: var(--border-radius-medium);
+        background: var(--md-sys-color-surface);
+        min-width: 300px;
+        width: 100%;
+        //599px и более
+        @media (min-width: $mobile-large) {
+          background: inherit;
+        }
+      }
+
+      &__card-title {
+        padding-bottom: var(--space-md);
+        font-size: var(--font-size-xxl);
+        position: relative;
+        &::before {
+          content: '';
+          position: absolute;
+        }
+      }
+
+      &__card-body {
+      }
+
+      &__card-images {
+        aspect-ratio: 3/2;
+        background: var(--md-sys-color-tertiary);
+        margin-bottom: var(--space-x-card);
+      }
+
+      &__card-img {
+      }
+
+      &__card-content {
+        margin-bottom: var(--space-x-card);
+      }
+
+      &__card-text {
+      }
+
+      &__card-footer {
+      }
+      .swiper {
+      }
+      .swiper-wrapper {
+      }
+      .swiper-slide {
+      }
+      .button {
+      }
+      .button--text {
+      }
+      .swiper-pagination {
+      }
+      .swiper-button-prev {
+      }
+      .swiper-button-next {
+      }
+
+      .swiper-scrollbar {
+      }
+    }
+  </style>
+</div>

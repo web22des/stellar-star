@@ -10,7 +10,7 @@ const subTitleSection = 'Преимущества использования н�
   <div class="advantages__container">
     <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
     <!-- Оболочка слайдера -->
-    <div class="advantages__slider swiper">
+    <div class="advantages__slider swiper mobile-slider">
       <!-- Двигающаяся часть слайдера -->
       <div class="advantages__wrapper swiper-wrapper">
         <!-- Слайд -->
@@ -127,44 +127,44 @@ const subTitleSection = 'Преимущества использования н�
     }
     //========================================================================================================================================================
 
-    .swiper-button-prev,
-    .swiper-button-next {
-      color: var(--md-sys-color-on-surface);
-      top: 24px;
-      &::after {
-        font-size: var(--font-size-xxxl);
-        font-family: 'icomoon';
-      }
-      &::before {
-        content: '';
-        position: absolute;
-        width: 36px;
-        height: 36px;
-        border-radius: var(--border-radius-full);
-        background-color: var(--md-sys-color-on-tertiary);
-        z-index: -1;
-      }
-      //767px и более
-      @media (min-width: $tablet-small) {
-        display: none;
-      }
-    }
-    .swiper-button-prev {
-      &::after {
-        font-family: 'icomoon';
-        content: '\e967';
-      }
-    }
-    .swiper-button-next {
-      &::after {
-        font-family: 'icomoon';
-        content: '\e968';
-      }
-    }
+    // .swiper-button-prev,
+    // .swiper-button-next {
+    //   color: var(--md-sys-color-on-surface);
+    //   top: 24px;
+    //   &::after {
+    //     font-size: var(--font-size-xxxl);
+    //     font-family: 'icomoon';
+    //   }
+    //   &::before {
+    //     content: '';
+    //     position: absolute;
+    //     width: 36px;
+    //     height: 36px;
+    //     border-radius: var(--border-radius-full);
+    //     background-color: var(--md-sys-color-on-tertiary);
+    //     z-index: -1;
+    //   }
+    //   //767px и более
+    //   @media (min-width: $tablet-small) {
+    //     display: none;
+    //   }
+    // }
+    // .swiper-button-prev {
+    //   &::after {
+    //     font-family: 'icomoon';
+    //     content: '\e967';
+    //   }
+    // }
+    // .swiper-button-next {
+    //   &::after {
+    //     font-family: 'icomoon';
+    //     content: '\e968';
+    //   }
+    // }
   }
 </style>
 
-<script>
+<!-- <script>
   import Swiper from 'swiper';
   import { Navigation, Pagination } from 'swiper/modules';
   import 'swiper/scss';
@@ -240,4 +240,4 @@ const subTitleSection = 'Преимущества использования н�
 
   // https://github.com/maxdenaro/swiper-on-resize
   // https://youtu.be/0GM7RN5b-Ek?si=v2UPP7FrI1E0W9mo
-</script>
+</script> -->

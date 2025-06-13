@@ -43,88 +43,87 @@
         transform: none;
       }
     }
-
-    &--outlined {
-      &:hover {
-      }
-
-      &:focus {
-      }
-
-      &:active {
-      }
-
-      &:disabled {
-      }
+  }
+  &--outlined {
+    &:hover {
     }
 
-    &--elevated {
-      background-color: transparent;
-
-      &:hover {
-      }
-
-      &:focus {
-      }
-
-      &:active {
-      }
-
-      &:disabled {
-      }
+    &:focus {
     }
 
-    &--text {
-      background-color: transparent;
-      color: var(--md-sys-color-primary);
-      &::after {
-        font-family: 'icomoon';
-        content: '\ea3c';
-        width: 18px;
-        height: 18px;
-        color: inherit;
-        bottom: 0;
-        right: 0;
-      }
-
-      &:hover {
-        background: var(--State-Layers-Primary-Opacity-08, rgba(101, 85, 143, 0.08));
-      }
-
-      &:focus {
-      }
-
-      &:active {
-      }
-
-      &:disabled {
-      }
-    }
-    &--tonal {
-      background-color: var(--md-sys-color-error);
-
-      &:hover {
-      }
-
-      &:focus {
-      }
-
-      &:active {
-      }
-
-      &:disabled {
-      }
-    }
-    // Размеры
-    &--sm {
-      padding: var(--space-xs) var(--space-sm);
-      font-size: var(--font-size-sm);
+    &:active {
     }
 
-    &--lg {
-      padding: var(--space-md) var(--space-lg);
-      font-size: var(--font-size-lg);
+    &:disabled {
     }
+  }
+
+  &--elevated {
+    background-color: transparent;
+
+    &:hover {
+    }
+
+    &:focus {
+    }
+
+    &:active {
+    }
+
+    &:disabled {
+    }
+  }
+
+  &--text {
+    background-color: transparent;
+    color: var(--md-sys-color-primary);
+    &::after {
+      font-family: 'icomoon';
+      content: '\ea3c';
+      width: 18px;
+      height: 18px;
+      color: inherit;
+      bottom: 0;
+      right: 0;
+    }
+
+    &:hover {
+      background: var(--State-Layers-Primary-Opacity-08, rgba(101, 85, 143, 0.08));
+    }
+
+    &:focus {
+    }
+
+    &:active {
+    }
+
+    &:disabled {
+    }
+  }
+  &--tonal {
+    background-color: var(--md-sys-color-error);
+
+    &:hover {
+    }
+
+    &:focus {
+    }
+
+    &:active {
+    }
+
+    &:disabled {
+    }
+  }
+  // Размеры
+  &--sm {
+    padding: var(--space-xs) var(--space-sm);
+    font-size: var(--font-size-sm);
+  }
+
+  &--lg {
+    padding: var(--space-md) var(--space-lg);
+    font-size: var(--font-size-lg);
   }
 }
 /* 

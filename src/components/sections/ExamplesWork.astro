@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+
+import TitleSections from '../ui/TitleSection.astro';
+
+const titleSection = 'Галерея работ';
+const subTitleSection = 'Здесь представлены некоторые работы сделанные за последний квартал';
+
+import macbookImage from '@assets/images/content/gallery/Macbook.png';
+import gallery01 from '@assets/images/content/gallery/gallery-01-sm.jpg';
+import gallery02 from '@assets/images/content/gallery/gallery-02-sm.jpg';
+import gallery03 from '@assets/images/content/gallery/gallery-03-sm.jpg';
+import gallery04 from '@assets/images/content/gallery/gallery-04-sm.jpg';
+---
+
+<section class="examples-work animate">
+  <div class="examples-work__container">
+    <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
+    <!-- Оболочка слайдера -->
+    <div class="examples-work__slider swiper fade-slider">
+      <!-- Двигающееся часть слайдера -->
+      <div class="examples-work__wrapper swiper-wrapper">
+        <!-- Слайд -->
+        <div class="examples-work__slide swiper-slide">
+          <Image class="examples-work__img" src={macbookImage} alt="macbook" />
+          <div class="examples-work__slide-content">
+            <Image class="examples-work__content-img" src={gallery01} alt="m" />
+          </div>
+        </div>
+        <div class="examples-work__slide swiper-slide">
+          <Image class="examples-work__img" src={macbookImage} alt="macbook" />
+          <div class="examples-work__slide-content">
+            <Image class="examples-work__content-img" src={gallery02} alt="m" />
+          </div>
+        </div>
+        <div class="examples-work__slide swiper-slide">
+          <Image class="examples-work__img" src={macbookImage} alt="macbook" />
+          <div class="examples-work__slide-content">
+            <Image class="examples-work__content-img" src={gallery03} alt="m" />
+          </div>
+        </div>
+        <div class="examples-work__slide swiper-slide">
+          <Image class="examples-work__img" src={macbookImage} alt="macbook" />
+          <div class="examples-work__slide-content">
+            <Image class="examples-work__content-img" src={gallery04} alt="m" />
+          </div>
+        </div>
+      </div>
+      <!-- Если нужна пагинация -->
+      <div class="swiper-pagination"></div>
+      <!-- Если нужна навигация (влево/вправо) -->
+      <button type="button" class="swiper-button-prev"></button>
+      <button type="button" class="swiper-button-next"></button>
+      <!-- Если нужен скролбар -->
+      <!-- <div class="swiper-scrollbar"></div> -->
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .examples-work {
+    &__container {
+    }
+
+    &__slider {
+      box-shadow: var(--box-shadow-Light-02);
+      border-radius: var(--border-radius-medium);
+      @media (min-width: $mobile-large) {
+        box-shadow: none;
+      }
+    }
+
+    &__wrapper {
+      background: inherit;
+      //padding-top: 12px;
+    }
+
+    &__slide {
+      //border: 1px solid #000;
+      text-align: center;
+    }
+
+    &__img {
+      position: relative;
+      display: none;
+      @media (min-width: $mobile-large) {
+        display: block;
+        max-width: 575px;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+
+        margin: 0 auto;
+      }
+      @media (min-width: $tablet-small) {
+        max-width: 740px;
+      }
+      @media (min-width: $tablet-medium) {
+        max-width: 936px;
+      }
+      @media (min-width: $tablet-large) {
+        //width: 850px;
+        //width: 750px;
+      }
+    }
+
+    &__slide-content {
+      aspect-ratio: 3/2;
+      width: 100%;
+      overflow-x: hidden;
+      background-color: var(--md-sys-color-on-secondary-fixed);
+      @media (min-width: $mobile-large) {
+        position: absolute;
+        top: 43%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 386px;
+        height: 244px;
+        border-radius: var(--border-radius-small);
+      }
+      @media (min-width: $tablet-small) {
+        width: 500px;
+        height: 318px;
+      }
+
+      @media (min-width: $tablet-medium) {
+        width: 630px;
+        height: 406px;
+      }
+    }
+    &__content-img {
+      //display: none;
+      height: auto;
+      width: 100%;
+      //object-fit: cover;
+    }
+  }
+
+  .swiper {
+  }
+  .swiper-wrapper {
+  }
+  .swiper-slide {
+  }
+  .swiper-pagination {
+  }
+  .swiper-button-prev {
+  }
+  .swiper-button-next {
+  }
+
+  .swiper-scrollbar {
+  }
+</style>

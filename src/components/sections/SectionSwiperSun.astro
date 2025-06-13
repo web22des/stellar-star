@@ -1,0 +1,95 @@
+---
+import { Image } from 'astro:assets';
+
+import TitleSections from '../ui/TitleSection.astro';
+const titleSection = 'Test section Sun title';
+const subTitleSection = 'Test section Sun subtitle';
+
+import webTypes01 from '@assets/images/content/website-types/hero-01-pc.jpg';
+import webTypes02 from '@assets/images/content/website-types/hero-02-pc.jpg';
+import webTypes03 from '@assets/images/content/website-types/hero-03-pc.jpg';
+import webTypes04 from '@assets/images/content/website-types/hero-04-pc.jpg';
+import webTypes05 from '@assets/images/content/website-types/hero-05-pc.jpg';
+import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
+---
+
+<section class="section-swiper-sun">
+  <div class="section-swiper-sun__container">
+    <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
+    <!-- Оболочка слайдера -->
+    <div class="section-swiper-sun__slider swiper">
+      <!-- Двигающаяся часть слайдера -->
+      <div class="section-swiper-sun__wrapper swiper-wrapper">
+        <!-- Слайд -->
+        <div class="section-swiper-sun__slide swiper-slide">
+          <Image class="section-swiper-sun__img" src={webTypes06} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="section-swiper-sun__slide swiper-slide">
+          <Image class="section-swiper-sun__img" src={webTypes02} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="section-swiper-sun__slide swiper-slide">
+          <Image class="section-swiper-sun__img" src={webTypes03} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="section-swiper-sun__slide swiper-slide">
+          <Image class="section-swiper-sun__img" src={webTypes04} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="section-swiper-sun__slide swiper-slide">
+          <Image class="section-swiper-sun__img" src={webTypes05} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="section-swiper-sun__slide swiper-slide">
+          <Image class="section-swiper-sun__img" src={webTypes01} alt="foto" />
+        </div>
+      </div>
+      <!-- Если нужна пагинация -->
+      <div class="swiper-pagination" aria-label="Навигация по слайдам"></div>
+      <!-- Если нужна навигация (влево/вправо) -->
+      <button type="button" class="swiper-button-prev" aria-label="Предыдущий слайд"></button>
+      <button type="button" class="swiper-button-next" aria-label="Следующий слайд"></button>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .section-swiper-sun {
+    &__container {
+    }
+
+    &__slider {
+    }
+
+    &__wrapper {
+    }
+
+    &__slide {
+      width: 100%;
+    }
+
+    &__img {
+      height: auto;
+      width: 100%;
+    }
+    .swiper {
+    }
+    .swiper-wrapper {
+    }
+    .swiper-slide {
+    }
+
+    .swiper-pagination {
+    }
+    .swiper-button-prev {
+    }
+    .swiper-button-next {
+    }
+    &.swiper-pagination {
+      &.swiper-pagination-bullet-active {
+        background-color: #e00d0d;
+      }
+    }
+  }
+</style>

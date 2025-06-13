@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import TitleSections from '../ui/TitleSection.astro';
+const titleSection = 'test-gallery-title';
+const subTitleSection = 'test-gallery-subtitle';
+
+import webTypes01 from '@assets/images/content/website-types/hero-01-pc.jpg';
+import webTypes02 from '@assets/images/content/website-types/hero-02-pc.jpg';
+import webTypes03 from '@assets/images/content/website-types/hero-03-pc.jpg';
+import webTypes04 from '@assets/images/content/website-types/hero-04-pc.jpg';
+import webTypes05 from '@assets/images/content/website-types/hero-05-pc.jpg';
+import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
+---
+
+<section class="test-gallery">
+  <div class="test-gallery__container">
+    <TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />
+    <!-- Оболочка слайдера -->
+    <div class="test-gallery__slider swiper">
+      <!-- Двигающаяся часть слайдера -->
+      <div class="test-gallery__wrapper swiper-wrapper">
+        <!-- Слайд -->
+        <div class="test-gallery__slide swiper-slide">
+          <Image class="website-types__images _img" src={webTypes01} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="test-gallery__slide swiper-slide">
+          <Image class="website-types__images _img" src={webTypes02} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="test-gallery__slide swiper-slide">
+          <Image class="website-types__images _img" src={webTypes03} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="test-gallery__slide swiper-slide">
+          <Image class="website-types__images _img" src={webTypes04} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="test-gallery__slide swiper-slide">
+          <Image class="website-types__images _img" src={webTypes05} alt="foto" />
+        </div>
+        <!-- Слайд -->
+        <div class="test-gallery__slide swiper-slide">
+          <Image class="website-types__images _img" src={webTypes06} alt="foto" />
+        </div>
+      </div>
+      <!-- Если нужна пагинация -->
+      <div class="swiper-pagination" aria-label="Навигация по слайдам"></div>
+      <!-- Если нужна навигация (влево/вправо) -->
+      <button type="button" class="swiper-button-prev" aria-label="Предыдущий слайд"></button>
+      <button type="button" class="swiper-button-next" aria-label="Следующий слайд"></button>
+      <!-- Если нужен скролбар -->
+      <div class="swiper-scrollbar" aria-label="Прокрутка слайдов"></div>
+    </div>
+  </div>
+</section>

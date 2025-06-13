@@ -1,4 +1,5 @@
 //
+@use '@styles/base/media-new.scss' as *;
 //@use "./variables.scss" as *;
 // @use "./mixins.scss" as mix;
 // @use "./mixins/grid.scss" as grid;
@@ -92,4 +93,66 @@ input[type='radio'].visually-hidden {
 
 .animate {
   background: var(--radial-gradient-base);
+}
+
+.portfolio {
+  .swiper {
+    //--swiper-navigation-color: #fff !important;
+    --swiper-pagination-color: var(--md-sys-color-tertiary);
+    --swiper-pagination-bullet-inactive-color: var(--md-sys-color-tertiary);
+  }
+  .swiper-wrapper {
+  }
+  .swiper-slide {
+  }
+  .swiper-pagination {
+  }
+
+  .swiper-pagination-bullet {
+    border-radius: 0;
+    border: 1px solid #f1efef;
+  }
+  .swiper-pagination-bullet-active {
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: var(--md-sys-color-on-surface);
+    &::after {
+      font-size: var(--font-size-xxxl);
+      font-family: 'icomoon';
+    }
+    &::before {
+      content: '';
+      position: absolute;
+      width: 36px;
+      height: 36px;
+      border-radius: var(--border-radius-full);
+      background-color: var(--md-sys-color-on-tertiary);
+      z-index: -1;
+    }
+  }
+  .swiper-button-prev {
+    &::after {
+      content: '\e967';
+    }
+  }
+  .swiper-button-next {
+    &::after {
+      content: '\e968';
+    }
+  }
+  .swiper-scrollbar {
+  }
+  //===== Стили для мобильного ===================================================================================================================================================
+
+  .mobile-slider {
+    .swiper-button-prev,
+    .swiper-button-next {
+      //767px и более
+      @media (min-width: $tablet-small) {
+        display: none;
+      }
+    }
+  }
 }

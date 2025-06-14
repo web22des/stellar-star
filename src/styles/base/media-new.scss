@@ -130,6 +130,7 @@ $desktop-2k: map.get($breakpoints, 'desktop-2k');
   padding-top: var(--space-section);
   padding-bottom: var(--space-section);
   box-sizing: border-box;
+  //767px и более
 
   // Вариант с брейкпоинтами (если $responsive-type == 2)
   @if $responsive-type == 2 {

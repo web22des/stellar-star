@@ -27,8 +27,13 @@ const { titleSection, subTitleSection } = Astro.props;
 
     &__subtitle {
       color: var(--md--sys-color-secondary);
-      text-shadow: var(--text-shadow-Light-02);
-      font-size: var(--font-size-xxl);
+      font-size: var(--font-size-base);
+      //text-transform: uppercase;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        text-shadow: var(--text-shadow-Light-02);
+        font-size: var(--font-size-xxl);
+      }
     }
   }
 </style>

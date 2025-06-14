@@ -10,24 +10,28 @@
   $transition-duration: 1.3s;
 
   .fade {
-    opacity: 0;
-    transform: translateZ(0);
-    transition:
-      opacity $transition-duration $ease-out,
-      transform $transition-duration $ease-out;
-    will-change: opacity, transform;
+    opacity: 1;
 
-    &--from-top {
-      transform: translateY(-$fade-distance);
-    }
-    &--from-bottom {
-      transform: translateY($fade-distance);
-    }
-    &--from-left {
-      transform: translateX(-$fade-distance);
-    }
-    &--from-right {
-      transform: translateX($fade-distance);
+    //767px и более
+    @media (min-width: $tablet-small) {
+      opacity: 0;
+      transform: translateZ(0);
+      transition:
+        opacity $transition-duration $ease-out,
+        transform $transition-duration $ease-out;
+      will-change: opacity, transform;
+      &--from-top {
+        transform: translateY(-$fade-distance);
+      }
+      &--from-bottom {
+        transform: translateY($fade-distance);
+      }
+      &--from-left {
+        transform: translateX(-$fade-distance);
+      }
+      &--from-right {
+        transform: translateX($fade-distance);
+      }
     }
     &--delay-1 {
       transition-delay: 0.2s;
@@ -56,6 +60,9 @@
 
 <script is:inline>
   function initScrollAnimation({ baseClass = 'fade', activeClass = 'fade--active', threshold = 0.7, animateOnce = true } = {}) {
+    // Проверяем ширину экрана перед инициализацией
+    if (window.innerWidth <= 767) return;
+
     const elements = document.querySelectorAll(`.${baseClass}`);
     if (!elements.length) return;
 
@@ -76,8 +83,17 @@
     elements.forEach((element) => observer.observe(element));
   }
 
-  // Запускаем после полной загрузки DOM
+  // Модифицированный обработчик загрузки
   document.addEventListener('DOMContentLoaded', () => {
+    // Инициализация при загрузке (если разрешение подходит)
     initScrollAnimation();
+
+    // Добавляем обработчик ресайза
+    window.addEventListener('resize', () => {
+      // Дополнительная проверка при изменении размера окна
+      if (window.innerWidth > 767) {
+        initScrollAnimation();
+      }
+    });
   });
 </script>

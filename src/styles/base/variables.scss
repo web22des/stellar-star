@@ -126,7 +126,7 @@
   --space-md: #{rem-em.rem(6)}; // 6 - 16
   --space-lg: #{rem-em.rem(8)}; // 8 - 24
   --space-xl: #{rem-em.rem(32)};
-  --space-xxl: #{rem-em.rem(48)};
+  --space-xxl: #{rem-em.rem(24)}; // 24 - 48
   --space-xxxl: #{rem-em.rem(64)};
 
   // Компонентные отступы
@@ -311,6 +311,7 @@
     --font-size-headline-large: #{rem-em.rem(28)};
     --font-size-title-large: #{rem-em.rem(20)};
 
+    --space-xxl: #{rem-em.rem(48)};
     --space-icon-text-large: #{rem-em.rem(40)};
     --space-all-card: #{rem-em.rem(12)};
     --space-md: #{rem-em.rem(12)};

@@ -129,13 +129,11 @@ import webTypes06 from '@assets/images/content/website-types/hero-06-pc.jpg';
     }
 
     &__wrap-images {
-      // aspect-ratio: 3/2;
-      // width: 100%;
-      // border-radius: var(--border-radius-medium);
-      // //flex: 1;
-      // background: var(--md-sys-color-on-primary-fixed-variant);
-      // margin-bottom: var(--space-lg);
-      // overflow: hidden;
+      margin-bottom: 24px;
+      //599px и более
+      @media (min-width: $mobile-large) {
+        margin-bottom: 0;
+      }
     }
 
     &__images {

@@ -1,0 +1,12 @@
+/// Миксин для прозрачных цветов с поддержкой полного синтаксиса var()
+/// @param {string} $property - CSS свойство
+/// @param {string} $color-var - Полная запись CSS переменной (с var())
+/// @param {number} $opacity - Прозрачность (0-1)
+@mixin transparent-color($property, $color-var, $opacity) {
+  #{$property}: color-mix(in srgb, #{$color-var} #{$opacity * 100%}, transparent #{(1 - $opacity) * 100%});
+}
+
+.element {
+  // Именно такой синтаксис
+  @include transparent-color('color', 'var(--md-sys-color-primary)', 0.7);
+}

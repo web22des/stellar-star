@@ -1,0 +1,159 @@
+---
+
+---
+
+<div class="popup-error-link" id="popup-error-link" aria-hidden="true">
+  <div class="popup-error-link__overlay"></div>
+  <div class="popup-error-link__container animate">
+    <button class="popup-error-link__close" aria-label="Закрыть"><span class="_icon-cross"></span> </button>
+    <h2 class="popup-error-link__title">Страница в процессе обновления</h2>
+    <p class="popup-error-link__text">Мы работаем над улучшением этой статьи. Скоро здесь появится новый, более удобный и информативный контент. Спасибо за ваше терпение!</p>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@styles/base/mixins/_transparent-color.scss' as *;
+
+  .popup-error-link {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition:
+      opacity 0.7s ease,
+      visibility 0.7s ease;
+
+    &[aria-hidden='false'] {
+      display: flex;
+    }
+
+    &__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      //transition: var(--transition-duration-slow);
+    }
+
+    &__container {
+      position: relative;
+      z-index: 1001;
+      max-height: 90vh;
+      min-height: 40%;
+      padding: var(--space-all-card);
+      //background: var(--md-sys-color-surface);
+      color: var(--md-sys-color-on-surface);
+      border-radius: var(--border-radius-medium);
+      border: 6px solid var(--md-sys-color-tertiary);
+      overflow-y: auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    &__close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+
+      font-size: var(--icon-size-medium);
+      color: var(--md-sys-color-tertiary);
+      speak: never;
+      transition: all var(--transition-duration-slow);
+      &:hover {
+        color: var(--md-sys-color-on-surface);
+        transform: rotate(90deg);
+      }
+    }
+
+    &__title {
+      font-size: var(--font-size-display-medium);
+      font-family: var(--font-family-heading);
+      margin-top: 56px;
+      margin-bottom: var(--space-lg);
+      //767px и более
+      @media (min-width: $tablet-small) {
+        margin-top: 0;
+      }
+    }
+
+    &__text {
+      font-size: var(--font-size-headline-small);
+      //max-width: var(--card-size-xl);
+    }
+  }
+
+  /* Блокировка скролла при открытом попапе */
+  body.popup-error-link-open {
+    overflow: hidden;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Конфигурация селекторов
+    const SELECTORS = {
+      popup: '#popup-error-link',
+      close: '.popup-error-link__close',
+      overlay: '.popup-error-link__overlay',
+      content: '.popup-error-link__content',
+    };
+
+    // Получаем элементы попапа
+    const popup = document.querySelector(SELECTORS.popup);
+    const body = document.body;
+    const closeBtn = popup ? popup.querySelector(SELECTORS.close) : null;
+    const overlay = popup ? popup.querySelector(SELECTORS.overlay) : null;
+    const content = popup ? popup.querySelector(SELECTORS.content) : null;
+
+    // Проверяем, что попап существует
+    if (!popup) {
+      console.error('Popup element not found');
+      return;
+    }
+
+    // Обработчик клика по документу
+    document.addEventListener('click', function (e) {
+      // Проверяем, был ли клик по ссылке
+      const link = e.target.closest('a');
+
+      if (link && link.getAttribute('href') === '#') {
+        e.preventDefault();
+        openPopup();
+      }
+    });
+
+    // Обработчик нажатия клавиш
+    function handleKeyDown(e) {
+      if (e.key === 'Escape') {
+        closePopup();
+      }
+    }
+
+    // Открыть попап
+    function openPopup() {
+      popup.style.display = 'flex';
+      body.classList.add('popup-error-link-open');
+      if (content) content.focus();
+    }
+
+    // Закрыть попап
+    function closePopup() {
+      popup.style.display = 'none';
+      body.classList.remove('popup-error-link-open');
+    }
+
+    // Навешиваем обработчики закрытия
+    if (closeBtn) closeBtn.addEventListener('click', closePopup);
+    if (overlay) overlay.addEventListener('click', closePopup);
+    popup.addEventListener('keydown', handleKeyDown);
+  });
+</script>

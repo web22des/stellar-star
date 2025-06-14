@@ -281,7 +281,6 @@
     --font-size-hero-large: #{rem-em.rem(52)};
 
     --font-size-headline-large: #{rem-em.rem(22)};
-    --font-size-display-medium: #{rem-em.rem(20)};
 
     --font-size-title-medium: #{rem-em.rem(16)};
 
@@ -293,6 +292,7 @@
 
   //599px и более
   @media (min-width: $mobile-large) {
+    //--font-size-display-medium: #{rem-em.rem(20)};
     --font-size-display-large: #{rem-em.rem(34)};
     --font-size-display-small: #{rem-em.rem(26)};
 

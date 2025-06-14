@@ -1,0 +1,54 @@
+/// Миксин для обрезки текста
+/// @param {number} $lines - количество строк (null для отключения)
+/// @param {number} $chars - количество символов (null для отключения)
+/// @param {boolean} $showEllipsis - добавлять многоточие
+@mixin truncate-text($lines: null, $chars: null, $showEllipsis: true) {
+  overflow: hidden;
+
+  @if $showEllipsis {
+    text-overflow: ellipsis;
+  }
+
+  // Режим обрезки по строкам
+  @if $lines {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: $lines;
+  }
+
+  // Режим обрезки по символам
+  @else if $chars {
+    white-space: nowrap;
+    max-width: 100%;
+    display: inline-block;
+
+    @if $showEllipsis {
+      &::after {
+        content: '...';
+      }
+    } @else {
+      &::after {
+        content: '';
+      }
+    }
+
+    // Ограничение длины через JS-атрибут (опционально)
+    &[data-max-chars]::after {
+      @if $showEllipsis {
+        content: '...';
+      } @else {
+        content: '';
+      }
+    }
+  }
+}
+
+//========================================================================================================================================================
+// 1. Обрезка по строкам (3 строки)
+// @include truncate-text($lines: 3);
+
+// 2. Обрезка по символам (120 символов)
+// @include truncate-text($chars: 120);
+
+// 3. Без многоточия
+// @include truncate-text($lines: 2, $showEllipsis: false);

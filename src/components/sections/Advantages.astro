@@ -55,13 +55,10 @@ const subTitleSection = 'Преимущества использования н�
 
 <style lang="scss">
   .advantages {
-    .swiper-pagination-bullet-active {
-      background: red;
-    }
     &__container {
     }
     &__slider {
-      padding: 4px;
+      padding: 1px;
     }
     &__wrapper {
       //767px и более
@@ -78,6 +75,7 @@ const subTitleSection = 'Преимущества использования н�
       border-radius: var(--border-radius-medium);
       background: var(--md-sys-color-surface-variant);
       box-shadow: var(--box-shadow-Light-02);
+      min-height: 220px;
       //359px и более
       @media (min-width: $tablet-small) {
         min-height: auto;
@@ -103,7 +101,11 @@ const subTitleSection = 'Преимущества использования н�
     &__card-content {
       color: var(--md-sys-color-secondary);
       padding-top: var(--space-y-card);
-      padding-bottom: var(--space-y-card);
+      padding-bottom: 28px;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        padding-bottom: 0;
+      }
       // margin-bottom: 24px;
       // //767px и более
       // @media (min-width: $tablet-small) {

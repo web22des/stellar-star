@@ -18,6 +18,9 @@ export function initSliders() {
           sliderEl.swiper = new Swiper(sliderEl, {
             modules: [Navigation, Pagination],
             slidesPerView: 'auto',
+            autoHeight: true,
+            spaceBetween: 10,
+            loop: true,
             pagination: {
               el: '.swiper-pagination',
               clickable: true,
@@ -46,12 +49,12 @@ export function initSliders() {
       if (mediaQuery.matches) {
         if (!sliderEl.swiper) {
           sliderEl.swiper = new Swiper(sliderEl, {
-            modules: [Pagination, EffectCards, Autoplay],
+            modules: [Pagination, EffectCards],
             slidesPerView: 'auto',
-            speed: 500,
-            autoplay: {
-              delay: 1000,
-            },
+            // speed: 500,
+            // autoplay: {
+            //   delay: 1000,
+            // },
             effect: 'cards',
             // Дополнительные параметры для эффекта карточек
             cardsEffect: {

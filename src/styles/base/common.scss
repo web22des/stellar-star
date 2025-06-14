@@ -67,6 +67,15 @@ input[type='radio'].visually-hidden {
 }
 //
 //========================================================================================================================================================
+.hover-lift {
+  transition: transform 0.3s ease; /* Плавность анимации */
+  &:hover {
+    transform: translateY(-8px); /* Смещение вверх на 5px */
+    box-shadow: var(--box-shadow-Light-03);
+  }
+}
+
+//=== Адаптивные изображения =====================================================================================================================================================
 ._ibg {
   position: relative;
   overflow: hidden; // Обрезает выходящие за границы части
@@ -75,6 +84,20 @@ input[type='radio'].visually-hidden {
   aspect-ratio: 16/9; // Фиксирует пропорции (опционально)
   border-radius: var(--border-radius-medium);
   box-shadow: var(--box-shadow-Light-01);
+  &--color-overlay {
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--md-sys-color-on-primary-fixed);
+      opacity: 0.2; /* Регулируйте прозрачность (0.1-0.5) */
+      mix-blend-mode: multiply; /* Лучший режим для наложения цвета */
+    }
+  }
   ._img {
     position: absolute;
     width: 100%;
@@ -86,14 +109,13 @@ input[type='radio'].visually-hidden {
   }
 }
 
-.container-animate-primary {
-  min-height: 200px;
-  background: var(--radial-gradient-base);
-}
+//=== Анимирование фона секции =====================================================================================================================================================
 
 .animate {
   background: var(--radial-gradient-base);
 }
+
+//=== Общие настройки swiper =====================================================================================================================================================
 
 .portfolio {
   .swiper {
@@ -149,6 +171,8 @@ input[type='radio'].visually-hidden {
   .mobile-slider {
     .swiper-button-prev,
     .swiper-button-next {
+      top: 24px;
+
       //767px и более
       @media (min-width: $tablet-small) {
         display: none;

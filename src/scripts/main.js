@@ -1,6 +1,7 @@
 import { initScrollAnimation } from '@scripts/ui/scrollAnimation.js';
 import { spollers } from './functions/spolers';
 import { initSliders } from '../scripts/libs/swiper/swiper-config.js';
+import { detectTouchDevice } from './functions/detectTouchDevice.js';
 //import { initSliders } from './libs/slider.js';
 
 // //initSliders();
@@ -8,6 +9,7 @@ import { initSliders } from '../scripts/libs/swiper/swiper-config.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   //initScrollAnimation();
+  detectTouchDevice();
   spollers();
   initSliders();
 });

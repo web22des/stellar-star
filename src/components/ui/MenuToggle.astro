@@ -1,0 +1,78 @@
+---
+// Пропсы компонента
+export interface Props {
+  iconMenu?: string;
+  iconClose?: string;
+}
+
+const {
+  iconMenu = '_icon-menu', // класс иконки "меню" из IcoMoon
+  iconClose = '_icon-cross', // класс иконки "закрыть" из IcoMoon
+} = Astro.props;
+---
+
+<button type="button" class="menu__toggle" aria-label="Открыть меню" aria-expanded="false" aria-controls="menu-nav">
+  <!-- <span class="menu__toggle-icon" data-icon-menu={iconMenu} data-icon-close={iconClose} class:list={[iconMenu]}></span> -->
+  <span class:list={['menu__toggle-icon', iconMenu]} data-icon-menu={iconMenu} data-icon-close={iconClose}></span>
+</button>
+
+<style lang="scss">
+  .menu__toggle {
+    // --size: 52px;
+    // width: var(--size);
+    // height: var(--size);
+    // background: transparent;
+    // border: none;
+    // padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  .menu__toggle-icon {
+    font-family: 'icomoon' !important;
+    font-size: 32px;
+    display: inline-block;
+    transition: opacity var(--transition-duration-slow);
+  }
+</style>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.querySelector('.menu__toggle');
+    if (!toggleBtn) return;
+
+    const icon = toggleBtn.querySelector('.menu__toggle-icon');
+    const menuNav = document.getElementById('menu-nav');
+
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+
+      // Переключаем состояние
+      toggleBtn.setAttribute('aria-expanded', !isExpanded);
+
+      // Меняем иконку
+      if (icon) {
+        const currentIcon = isExpanded ? icon.dataset.iconClose : icon.dataset.iconMenu;
+        const newIcon = isExpanded ? icon.dataset.iconMenu : icon.dataset.iconClose;
+
+        // Удаляем все возможные классы иконок
+        icon.classList.remove(icon.dataset.iconMenu, icon.dataset.iconClose);
+        // Добавляем нужный класс
+        icon.classList.add(newIcon);
+      }
+
+      // Управляем меню
+      if (menuNav) {
+        menuNav.classList.toggle('_active');
+        document.body.style.overflow = isExpanded ? 'auto' : 'hidden';
+      }
+    });
+  });
+</script>

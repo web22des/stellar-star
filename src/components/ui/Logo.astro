@@ -1,0 +1,33 @@
+---
+// src/components/Logo.astro
+const { theme = 'auto' } = Astro.props;
+---
+
+<!-- Обёртка для логотипа -->
+<div class="logo-wrapper" data-theme={theme === 'auto' ? '' : theme}>
+  <!-- Логотип для светлой темы -->
+  <img class="logo logo-light" src="/logos/logo-light.svg" alt="Логотип (светлая тема)" data-theme="light" />
+
+  <!-- Логотип для тёмной темы -->
+  <img class="logo logo-dark" src="/logos/logo-dark.svg" alt="Логотип (тёмная тема)" data-theme="dark" />
+</div>
+
+<style>
+  /* Скрываем неактивный логотип */
+  .logo {
+    display: none;
+    border-radius: var(--border-radius-medium);
+    width: 100px;
+  }
+
+  /* Показываем соответствующий логотип */
+  html[data-theme='light'] .logo-light,
+  html[data-theme='dark'] .logo-dark {
+    display: block;
+  }
+  /* Для auto - полагаемся на html[data-theme] */
+  html[data-theme='light'] .logo-wrapper:not([data-theme]) .light,
+  html[data-theme='dark'] .logo-wrapper:not([data-theme]) .dark {
+    display: block;
+  }
+</style>

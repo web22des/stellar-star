@@ -1,9 +1,104 @@
 ---
-
+import MenuSubList from '../ui/MenuSubList.astro';
+import SocialContact from '../ui/SocialContact.astro';
+import Logo from '../ui/Logo.astro';
+import MenuToggle from '../ui/MenuToggle.astro';
 ---
 
-<footer class="header">
-    <div class="header__container">
-        <p>header</p>
+<header class="header">
+  <div class="header__container">
+    <div class="header__logo">
+      <Logo />
     </div>
-</footer>
+    <div class="header__menu animate">
+      <MenuSubList />
+    </div>
+    <div class="header__contacts">
+      <SocialContact />
+    </div>
+    <div class="header__btn-burger-wraper">
+      <MenuToggle />
+    </div>
+  </div>
+</header>
+
+<style lang="scss">
+  .header {
+    position: fixed;
+    width: 100%;
+    z-index: 100;
+    background: var(--md-sys-color-surface-container);
+
+    &__container {
+      //position: fixed;
+      //z-index: 90;
+      background: inherit;
+      padding-top: var(--space-md);
+      padding-bottom: var(--space-md);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:has(.menu__toggle[aria-expanded='true']) {
+        .header__menu {
+          transform: translateX(-4%);
+          //opacity: 1;
+        }
+      }
+    }
+
+    &__logo {
+    }
+
+    &__menu {
+      box-shadow: var(--box-shadow-Light-02);
+      position: absolute;
+      z-index: -1;
+      top: 54px;
+      height: 100vh;
+      width: 100%;
+      max-width: 320px;
+      padding-left: 16px;
+      transform: translateX(-120%);
+      // opacity: 0;
+      transition: transform 0.7s ease;
+      padding-top: 40px;
+      //1023px и более
+      @media (min-width: $tablet-medium) {
+        position: static;
+        height: auto;
+        background: inherit;
+        padding-top: 0;
+        transform: translateX(0);
+        z-index: inherit;
+        box-shadow: none;
+        // opacity: 1;
+      }
+    }
+
+    &__contacts {
+      display: none;
+      //1023px и более
+      @media (min-width: $tablet-medium) {
+        width: auto;
+      }
+      //599px и более
+      @media (min-width: $mobile-large) {
+        display: block;
+        width: 100%;
+        width: 140px;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+
+    &__btn-burger-wraper {
+      position: relative;
+      z-index: 100;
+      //1023px и более
+      @media (min-width: $tablet-medium) {
+        display: none;
+      }
+    }
+  }
+</style>

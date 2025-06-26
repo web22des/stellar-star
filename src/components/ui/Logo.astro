@@ -6,10 +6,10 @@ const { theme = 'auto' } = Astro.props;
 <!-- Обёртка для логотипа -->
 <div class="logo-wrapper" data-theme={theme === 'auto' ? '' : theme}>
   <!-- Логотип для светлой темы -->
-  <img class="logo logo-light" src="/logos/logo-light.svg" alt="Логотип (светлая тема)" data-theme="light" />
+  <img class="logo logo-light" src="./logos/logo-light.svg" alt="Логотип (светлая тема)" data-theme="light" />
 
   <!-- Логотип для тёмной темы -->
-  <img class="logo logo-dark" src="/logos/logo-dark.svg" alt="Логотип (тёмная тема)" data-theme="dark" />
+  <img class="logo logo-dark" src="./logos/logo-dark.svg" alt="Логотип (тёмная тема)" data-theme="dark" />
 </div>
 
 <style>

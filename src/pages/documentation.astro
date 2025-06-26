@@ -2,7 +2,7 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import path from 'path';
 
-const title = 'Новости';
+const title = 'Документация vs шпаргалка';
 
 // 1. Загружаем посты с базовой типизацией
 const postFiles: Record<
@@ -14,7 +14,7 @@ const postFiles: Record<
       date?: string;
     };
   }
-> = import.meta.glob('./news/*.md', { eager: true });
+> = import.meta.glob('./documentations/*.md', { eager: true });
 
 // 2. Преобразуем в массив постов
 const allPosts = Object.entries(postFiles).map(([filePath, file]) => {
@@ -31,7 +31,7 @@ const sortedPosts = [...allPosts].sort((a, b) => new Date(b.date).getTime() - ne
 
 // 4. Формируем URL
 const baseUrl = import.meta.env.BASE_URL || '/';
-const getPostUrl = (slug: string) => `${baseUrl}news/${slug}/`;
+const getPostUrl = (slug: string) => `${baseUrl}documentation/${slug}/`;
 ---
 
 <PageLayout title={title}>

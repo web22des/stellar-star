@@ -10,14 +10,12 @@ import logoDark from '../../../public/images/logo/logo-dark.svg';
 
 <!-- Обёртка для логотипа -->
 <div class="logo-wrapper" data-theme={theme === 'auto' ? '' : theme}>
-  <!-- Логотип для светлой темы -->
+  <!-- Логотип для светлой и темной темы -->
   <Image class="logo logo-light" src={logoLight} alt="Логотип (светлая тема)" data-theme="light" />
-
-  <!-- Логотип для тёмной темы -->
-  <img class="logo logo-dark" src="/images/logo/logo-dark.svg" alt="Логотип (тёмная тема)" data-theme="dark" />
+  <Image class="logo logo-dark" src={logoDark} alt="Логотип (тёмная тема)" data-theme="dark" />
 </div>
-
-<style>
+<!--  -->
+<style lang="scss">
   /* Скрываем неактивный логотип */
   .logo {
     display: none;

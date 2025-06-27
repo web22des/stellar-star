@@ -1,12 +1,17 @@
 ---
 // src/components/Logo.astro
+import { Image } from "astro:assets";
+
 const { theme = 'auto' } = Astro.props;
+
+import logo-light from "../../../public/images/logo/logo-light.svg";
+import logo-dark from "../../../public/images/logo/logo-dark.svg";
 ---
 
 <!-- Обёртка для логотипа -->
 <div class="logo-wrapper" data-theme={theme === 'auto' ? '' : theme}>
   <!-- Логотип для светлой темы -->
-  <img class="logo logo-light" src="/images/logo/logo-light.svg" alt="Логотип (светлая тема)" data-theme="light" />
+  <Image class="logo logo-light" src={logo-light} alt="Логотип (светлая тема)" data-theme="light" />
 
   <!-- Логотип для тёмной темы -->
   <img class="logo logo-dark" src="/images/logo/logo-dark.svg" alt="Логотип (тёмная тема)" data-theme="dark" />

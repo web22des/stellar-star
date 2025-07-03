@@ -47,8 +47,6 @@
       z-index: 1001;
       max-height: 90vh;
       min-height: 40%;
-      //padding: var(--space-all-card);
-      //background: var(--md-sys-color-surface);
       color: var(--md-sys-color-on-surface);
       border-radius: var(--border-radius-medium);
       border: 6px solid var(--md-sys-color-tertiary);
@@ -57,6 +55,13 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      margin-right: 10px;
+      margin-left: 10px;
+      //767px и более
+      @media (min-width: $tablet-small) {
+        margin-left: 100px;
+        margin-right: 100px;
+      }
     }
 
     &__close {

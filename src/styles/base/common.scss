@@ -1,22 +1,5 @@
 //
 @use '@styles/base/media-new.scss' as *;
-//@use "./variables.scss" as *;
-// @use "./mixins.scss" as mix;
-// @use "./mixins/grid.scss" as grid;
-//
-html.touch {
-  // Отключаем все ховер-эффекты для тач-устройств
-  * {
-    &:hover,
-    &:focus,
-    &:active {
-      // background: inherit !important;
-      // color: inherit !important;
-      // transform: none !important;
-      // Другие свойства, которые нужно сбросить
-    }
-  }
-}
 
 body {
   font-family: var(--font-family-base);
@@ -82,11 +65,13 @@ input[type='radio'].visually-hidden {
 //
 
 //========================================================================================================================================================
-.hover-lift {
-  transition: transform 0.3s ease; /* Плавность анимации */
-  &:hover {
-    transform: translateY(-8px); /* Смещение вверх на 5px */
-    box-shadow: var(--box-shadow-Light-03);
+html.no-touch {
+  .hover-lift {
+    transition: transform 0.3s ease; /* Плавность анимации */
+    &:hover {
+      transform: translateY(-8px); /* Смещение вверх на 5px */
+      box-shadow: var(--box-shadow-Light-03);
+    }
   }
 }
 

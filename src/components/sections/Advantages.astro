@@ -69,11 +69,9 @@ const subTitleSection = 'Преимущества использования н�
       }
     }
     &__slide {
-      //min-height: 320px;
       padding: var(--space-all-card);
       text-align: center;
       border-radius: var(--border-radius-medium);
-      //background: var(--md-sys-color-surface-variant);
       box-shadow: var(--box-shadow-Light-02);
       min-height: 220px;
       //359px и более
@@ -106,18 +104,11 @@ const subTitleSection = 'Преимущества использования н�
       @media (min-width: $tablet-small) {
         padding-bottom: 0;
       }
-      // margin-bottom: 24px;
-      // //767px и более
-      // @media (min-width: $tablet-small) {
-      //   padding-bottom: 0;
-      //   margin-bottom: 0;
-      // }
     }
+
     [class*='_icon-'] {
       display: inline-block;
       font-size: var(--icon-size-large);
-      //font-size: var(--icon-size-extra-large); // 32px
-      //padding-left: 8px;
 
       //767px и более
       @media (min-width: $tablet-small) {
@@ -128,118 +119,5 @@ const subTitleSection = 'Преимущества использования н�
       text-align: end;
     }
     //========================================================================================================================================================
-
-    // .swiper-button-prev,
-    // .swiper-button-next {
-    //   color: var(--md-sys-color-on-surface);
-    //   top: 24px;
-    //   &::after {
-    //     font-size: var(--font-size-xxxl);
-    //     font-family: 'icomoon';
-    //   }
-    //   &::before {
-    //     content: '';
-    //     position: absolute;
-    //     width: 36px;
-    //     height: 36px;
-    //     border-radius: var(--border-radius-full);
-    //     background-color: var(--md-sys-color-on-tertiary);
-    //     z-index: -1;
-    //   }
-    //   //767px и более
-    //   @media (min-width: $tablet-small) {
-    //     display: none;
-    //   }
-    // }
-    // .swiper-button-prev {
-    //   &::after {
-    //     font-family: 'icomoon';
-    //     content: '\e967';
-    //   }
-    // }
-    // .swiper-button-next {
-    //   &::after {
-    //     font-family: 'icomoon';
-    //     content: '\e968';
-    //   }
-    // }
   }
 </style>
-
-<!-- <script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination } from 'swiper/modules';
-  import 'swiper/scss';
-  import 'swiper/scss/navigation';
-  import 'swiper/scss/pagination';
-  import 'swiper/scss/scrollbar';
-  import type { CSSSelector } from 'swiper/types';
-
-  window.addEventListener('DOMContentLoaded', () => {
-    /**
-     * Инициализирует Swiper с учетом брейкпоинта
-     * @param {string} breakpoint - Медиа-запрос для проверки
-     * @param {string} swiperClass - Класс контейнера Swiper
-     * @param {Object} swiperSettings - Настройки Swiper
-     * @param {Function} [callback] - Колбек после инициализации
-     */
-    const resizableSwiper = (breakpoint: string, swiperClass: string, swiperSettings: object, callback: Function) => {
-      /** @type {Swiper|null} */
-      let swiper: Swiper | null = null;
-
-      const mediaQuery = window.matchMedia(breakpoint);
-
-      const enableSwiper = (className: string | CSSSelector | HTMLElement, settings: object | undefined) => {
-        swiper = new Swiper(className, settings);
-        callback?.(swiper);
-      };
-
-      const checker = () => {
-        if (mediaQuery.matches) {
-          enableSwiper(swiperClass, swiperSettings);
-        } else {
-          swiper?.destroy(true, true);
-          swiper = null;
-        }
-      };
-
-      mediaQuery.addEventListener('change', checker);
-      checker();
-    };
-
-    //Пример колбека (закомментирован)
-    const someFunc = (/** @type {Swiper} */ instance: Swiper) => {
-      instance.on('slideChange', (e) => {
-        console.log('Active index:', instance.activeIndex);
-      });
-    };
-
-    resizableSwiper(
-      '(max-width: 767px)',
-      '.advantages__slider',
-      {
-        modules: [Navigation, Pagination],
-        observer: true,
-        observeParents: true,
-        slidesPerView: 'auto',
-        centeredSlides: true,
-        spaceBetween: 10,
-        speed: 800,
-        loop: true,
-        autoHeight: true,
-        pagination: {
-          el: '.swiper-pagination',
-          clickable: true,
-        },
-        navigation: {
-          prevEl: '.swiper-button-prev',
-          nextEl: '.swiper-button-next',
-        },
-      },
-      someFunc
-    );
-  });
-
-  // https://github.com/maxdenaro/swiper-on-resize
-  // https://youtu.be/0GM7RN5b-Ek?si=v2UPP7FrI1E0W9mo
-</script> -->

@@ -14,9 +14,8 @@ import SocialContact from '../ui/SocialContact.astro';
       <nav class="menu__body">
         <ul class="menu__list">
           <li>
-            <button class="menu__link">Главная<span class="_icon-circle-down"></span></button>
+            <Link href="/" class="menu__link">Главная<span class="_icon-circle-down"></span></Link>
             <ul class="menu__sub-list">
-              <li class="menu__subitem"><Link href="/" class="menu__sublink">На главную</Link></li>
               <li class="menu__subitem"><Link href="#advantages" class="menu__sublink" data-goto="#advantages">Преимущества</Link></li>
               <li class="menu__subitem"><Link href="#services" class="menu__sublink" data-goto="#services">Услуги</Link></li>
               <li class="menu__subitem"><Link href="#website-types" class="menu__sublink" data-goto="#website-types">Виды сайтов</Link></li>
@@ -27,7 +26,7 @@ import SocialContact from '../ui/SocialContact.astro';
             </ul>
           </li>
           <li><a data-goto=".page__section--2" href="#" class="menu__link">Курсы</a></li>
-          <li><a data-goto=".page__section--2" href="#" class="menu__link">Сериалы</a></li>
+          <li><a data-goto=".page__section--2" href="/gallery/" class="menu__link">Галерея</a></li>
           <li>
             <button class="menu__link">Новости<span class="_icon-circle-down"></span></button>
             <ul class="menu__sub-list">
@@ -35,7 +34,7 @@ import SocialContact from '../ui/SocialContact.astro';
               <li class="menu__subitem"><Link href="/post/" class="menu__sublink">Блог</Link></li>
             </ul>
           </li>
-          <li><a data-goto=".page__section--3" href="#" class="menu__link">Контакты</a></li>
+          <li><a data-goto=".page__section--3" href="/contacts/" class="menu__link">Контакты</a></li>
         </ul>
       </nav>
     </div>
@@ -45,10 +44,8 @@ import SocialContact from '../ui/SocialContact.astro';
   </div>
 </header>
 
-<!-- =============== -->
+<!-- =============== !!-->
 <style lang="scss">
-  //@use '@styles/base/media-new.scss' as media;
-
   body._lock {
     overflow: hidden;
   }
@@ -69,7 +66,7 @@ import SocialContact from '../ui/SocialContact.astro';
       align-items: center;
       justify-content: space-between;
       min-height: 70px;
-      //767px и более
+
       @media (min-width: $tablet-small) {
         flex-wrap: wrap;
       }
@@ -77,40 +74,21 @@ import SocialContact from '../ui/SocialContact.astro';
 
     &__social-wrap {
       display: none;
-      //1023px и более
+
       @media (min-width: $tablet-medium) {
         display: block;
       }
     }
+
     &__logo-wrap {
       width: 180px;
     }
-
-    // &__logo {
-    //   width: 100px;
-    //   height: auto;
-
-    //   img {
-    //     width: 100%;
-    //   }
-    // }
-
-    // &__themetoggle-wrap {
-    //   display: flex;
-    //   justify-content: end;
-
-    //   //767px и более
-    //   @media (min-width: $tablet-small) {
-    //     width: 100%;
-    //     justify-content: center;
-    //   }
-    // }
   }
 
   /* Меню (Mobile First) */
   .menu {
     &__icon {
-      display: block; // Показываем бургер-меню по умолчанию (mobile)
+      display: block;
       z-index: 5;
       position: relative;
       width: 30px;
@@ -170,14 +148,14 @@ import SocialContact from '../ui/SocialContact.astro';
       max-width: 320px;
       width: 100%;
       height: 100%;
-      background-color: var(--md-sys-color-secondary);
+      background-color: var(--md-sys-color-surface-container-high);
+
       padding: 100px 30px 30px 30px;
       transition: left 0.3s ease 0s;
       overflow: auto;
-      z-index: 1;
+      z-index: -1;
 
       &._active {
-        // Выезд меню слева
         left: 0;
       }
 
@@ -189,69 +167,11 @@ import SocialContact from '../ui/SocialContact.astro';
         left: 0;
         height: 70px;
         z-index: 2;
-        //background-color: tomato;
+        background-color: var(--md-sys-color-surface-variant);
       }
-      //1023px и более
+
       @media (min-width: $tablet-medium) {
         max-width: 100%;
-      }
-    }
-
-    &__list {
-      li {
-        flex-wrap: wrap;
-        margin: 0px 0px 30px 0px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-
-        &._active .menu__sub-list {
-          display: block;
-        }
-      }
-    }
-
-    &__link {
-      font-size: 24px;
-      color: var(--md-sys-color-on-surface);
-      display: flex;
-      gap: 4px;
-      align-items: center;
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &__sub-list {
-      position: relative;
-      background-color: #fff;
-      flex: 1 1 100%;
-      margin: 20px 0px 0px 0px;
-      padding: 12px;
-      display: none;
-    }
-
-    &__sublink {
-      font-size: 20px;
-      color: tomato;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
-
-    &__arrow {
-      //display: none;
-    }
-
-    //1023px и более
-    @media (min-width: $tablet-medium) {
-      &__icon {
-        display: none; // Скрываем бургер на планшетах и выше
-      }
-
-      &__body {
         position: static;
         width: auto;
         height: auto;
@@ -263,6 +183,94 @@ import SocialContact from '../ui/SocialContact.astro';
           display: none;
         }
       }
+    }
+
+    &__list {
+      li {
+        flex-wrap: wrap;
+        margin: 0px 0px 30px 0px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__link {
+      font-size: 24px;
+      color: var(--md-sys-color-on-surface);
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      width: 100%;
+      background: none;
+      border: none;
+      text-align: left;
+      padding: 0;
+      cursor: pointer;
+
+      &:hover {
+        //text-decoration: underline;
+      }
+      //1023px и более
+      @media (min-width: $tablet-medium) {
+        color: inherit;
+      }
+    }
+
+    &__sub-list {
+      position: relative;
+      //background-color: var(--md-sys-color-surface-variant);
+      flex: 1 1 100%;
+      margin: 0;
+      padding: 0 12px;
+      max-height: 0;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      will-change: max-height, opacity;
+
+      li {
+        //margin: 10px 0;
+      }
+
+      @media (min-width: $tablet-medium) {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--md-sys-color-surface-variant);
+        //padding: 15px;
+        padding: 16px 0px 16px 0px;
+        min-width: max-content;
+        box-shadow: var(--box-shadow-Light-01);
+        transform: translateY(10px);
+        pointer-events: none;
+        max-height: none;
+      }
+    }
+
+    &__sublink {
+      font-size: 20px;
+      //color: tomato;
+      display: block;
+      //padding: 5px 0;
+      padding: 0px 12px 0px 12px;
+
+      &:hover {
+        //text-decoration: underline;
+      }
+    }
+
+    ._icon-circle-down {
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+
+    @media (min-width: $tablet-medium) {
+      &__icon {
+        display: none;
+      }
 
       &__list {
         display: flex;
@@ -272,7 +280,6 @@ import SocialContact from '../ui/SocialContact.astro';
           position: relative;
           margin: 0px 0px 0px 20px;
           padding: 10px 0;
-          flex-wrap: nowrap;
         }
       }
 
@@ -281,21 +288,6 @@ import SocialContact from '../ui/SocialContact.astro';
       }
 
       &__sub-list {
-        box-shadow: var(--box-shadow-Light-01);
-        position: absolute;
-        top: 20px;
-        right: 0;
-        background-color: var(--md-sys-color-primary);
-        padding: 15px;
-        min-width: 200px;
-        min-width: max-content;
-        transform: translate(0px, 10%);
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-        transition: all 0.7s ease 0s;
-        display: block !important; // Переопределяем mobile-стили
-
         li {
           margin: 0px 0px 10px 0px;
 
@@ -304,15 +296,27 @@ import SocialContact from '../ui/SocialContact.astro';
           }
         }
       }
+    }
+  }
 
-      &__sublink {
-        //color: tomato;
+  /* Анимации для активного состояния */
+  .menu__list > li._active {
+    .menu__sub-list {
+      max-height: 500px;
+      opacity: 1;
+      visibility: visible;
+      margin-top: 20px;
+      padding: 12px;
+      pointer-events: auto;
+
+      @media (min-width: $tablet-medium) {
+        transform: translateY(0);
+        margin-top: 0;
       }
     }
 
     ._icon-circle-down {
-      //display: none;
-      font-size: 14px;
+      transform: rotate(-180deg);
     }
   }
 
@@ -320,12 +324,17 @@ import SocialContact from '../ui/SocialContact.astro';
   html.no-touch .menu__list > li:hover .menu__sub-list {
     opacity: 1;
     visibility: visible;
-    transform: translate(0px, 0px);
+    transform: translateY(0);
     pointer-events: all;
   }
 
+  html.no-touch .menu__sublink {
+    &:hover {
+      background-color: var(--md-sys-color-surface-dim);
+    }
+  }
+
   html.touch {
-    //1023px и более
     @media (min-width: $tablet-medium) {
       .menu__list > li {
         display: flex;
@@ -334,35 +343,6 @@ import SocialContact from '../ui/SocialContact.astro';
 
       .menu__link {
         flex: 1 1 auto;
-      }
-      ._icon-circle-down {
-        //display: block !important;
-      }
-      // .menu__arrow {
-      //   display: block;
-      //   width: 0;
-      //   height: 0;
-      //   margin: 0px 0px 0px 5px;
-      //   transition: transform 0.3s ease 0s;
-      //   border-left: 5px solid transparent;
-      //   border-right: 5px solid transparent;
-      //   border-top: 10px solid #fff;
-      // }
-
-      .menu__list > li._active {
-        .menu__sub-list {
-          opacity: 1;
-          visibility: visible;
-          transform: translate(0px, 0px);
-          pointer-events: all;
-        }
-
-        // .menu__arrow {
-        //   transform: rotate(-180deg);
-        // }
-        ._icon-circle-down {
-          transform: rotate(-180deg);
-        }
       }
     }
   }

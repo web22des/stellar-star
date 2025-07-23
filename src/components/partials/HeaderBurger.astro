@@ -1,11 +1,14 @@
 ---
 import Logo from '../ui/Logo.astro';
 import Link from '../ui/Link.astro';
+import SocialContact from '../ui/SocialContact.astro';
 ---
 
 <header class="header">
   <div class="header__container">
-    <Logo />
+    <div class="header__logo-wrap">
+      <Logo />
+    </div>
     <div class="header__menu menu">
       <button type="button" class="menu__icon icon-menu"><span></span></button>
       <nav class="menu__body">
@@ -14,21 +17,30 @@ import Link from '../ui/Link.astro';
             <button class="menu__link">Главная<span class="_icon-circle-down"></span></button>
             <ul class="menu__sub-list">
               <li class="menu__subitem"><Link href="/" class="menu__sublink">На главную</Link></li>
-              <li class="menu__subitem"><Link href="#advantages" class="menu__sublink">Преимущества</Link></li>
-              <li class="menu__subitem"><Link href="#services" class="menu__sublink">Услуги</Link></li>
-              <li class="menu__subitem"><Link href="#website-types" class="menu__sublink">Виды сайтов</Link></li>
-              <li class="menu__subitem"><Link href="#development-process" class="menu__sublink">Процесс разработки</Link></li>
-              <li class="menu__subitem"><Link href="#result" class="menu__sublink">Результат</Link></li>
-              <li class="menu__subitem"><Link href="#examples-work" class="menu__sublink">Галерея</Link></li>
-              <li class="menu__subitem"><Link href="#contact-form" class="menu__sublink">Обратная связь</Link></li>
+              <li class="menu__subitem"><Link href="#advantages" class="menu__sublink" data-goto="#advantages">Преимущества</Link></li>
+              <li class="menu__subitem"><Link href="#services" class="menu__sublink" data-goto="#services">Услуги</Link></li>
+              <li class="menu__subitem"><Link href="#website-types" class="menu__sublink" data-goto="#website-types">Виды сайтов</Link></li>
+              <li class="menu__subitem"><Link href="#development-process" class="menu__sublink" data-goto="#development-process">Процесс разработки</Link></li>
+              <li class="menu__subitem"><Link href="#result" class="menu__sublink" data-goto="#result">Результат</Link></li>
+              <li class="menu__subitem"><Link href="#examples-work" class="menu__sublink" data-goto="#examples-work">Галерея</Link></li>
+              <li class="menu__subitem"><Link href="#contact-form" class="menu__sublink" data-goto="#contact-form">Обратная связь</Link></li>
             </ul>
           </li>
           <li><a data-goto=".page__section--2" href="#" class="menu__link">Курсы</a></li>
           <li><a data-goto=".page__section--2" href="#" class="menu__link">Сериалы</a></li>
-          <li><a data-goto=".page__section--1" href="#" class="menu__link">Фитнес</a></li>
-          <li><a data-goto=".page__section--3" href="#" class="menu__link">Школьникам</a></li>
+          <li>
+            <button class="menu__link">Новости<span class="_icon-circle-down"></span></button>
+            <ul class="menu__sub-list">
+              <li class="menu__subitem"><Link href="/news/" class="menu__sublink">Новости IT</Link></li>
+              <li class="menu__subitem"><Link href="/post/" class="menu__sublink">Блог</Link></li>
+            </ul>
+          </li>
+          <li><a data-goto=".page__section--3" href="#" class="menu__link">Контакты</a></li>
         </ul>
       </nav>
+    </div>
+    <div class="header__social-wrap">
+      <SocialContact />
     </div>
   </div>
 </header>
@@ -48,7 +60,7 @@ import Link from '../ui/Link.astro';
     left: 0;
     width: 100%;
     z-index: 10;
-    background-color: var(--md-sys-color-primary);
+    background-color: var(--md-sys-color-surface-variant);
 
     &__container {
       display: flex;
@@ -61,6 +73,17 @@ import Link from '../ui/Link.astro';
       @media (min-width: $tablet-small) {
         flex-wrap: wrap;
       }
+    }
+
+    &__social-wrap {
+      display: none;
+      //1023px и более
+      @media (min-width: $tablet-medium) {
+        display: block;
+      }
+    }
+    &__logo-wrap {
+      width: 180px;
     }
 
     // &__logo {
@@ -102,7 +125,7 @@ import Link from '../ui/Link.astro';
         height: 10%;
         width: 100%;
         transition: all 0.3s ease 0s;
-        background-color: var(--md-sys-color-on-primary);
+        background-color: var(--md-sys-color-on-surface);
       }
 
       &::before,
@@ -154,6 +177,7 @@ import Link from '../ui/Link.astro';
       z-index: 1;
 
       &._active {
+        // Выезд меню слева
         left: 0;
       }
 
@@ -165,6 +189,11 @@ import Link from '../ui/Link.astro';
         left: 0;
         height: 70px;
         z-index: 2;
+        //background-color: tomato;
+      }
+      //1023px и более
+      @media (min-width: $tablet-medium) {
+        max-width: 100%;
       }
     }
 
@@ -185,7 +214,7 @@ import Link from '../ui/Link.astro';
 
     &__link {
       font-size: 24px;
-      color: var(--md-sys-color-on-primary);
+      color: var(--md-sys-color-on-surface);
       display: flex;
       gap: 4px;
       align-items: center;
@@ -199,12 +228,13 @@ import Link from '../ui/Link.astro';
       background-color: #fff;
       flex: 1 1 100%;
       margin: 20px 0px 0px 0px;
+      padding: 12px;
       display: none;
     }
 
-    &__sub-link {
+    &__sublink {
       font-size: 20px;
-      color: #000;
+      color: tomato;
 
       &:hover {
         text-decoration: underline;
@@ -275,8 +305,8 @@ import Link from '../ui/Link.astro';
         }
       }
 
-      &__sub-link {
-        color: #fff;
+      &__sublink {
+        //color: tomato;
       }
     }
 
@@ -353,7 +383,8 @@ import Link from '../ui/Link.astro';
   }
 
   // 2. Обработчик для плавной прокрутки
-  const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+  //const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+  const menuLinks = document.querySelectorAll('.menu__sublink[data-goto]');
   if (menuLinks.length > 0) {
     menuLinks.forEach((menuLink) => {
       menuLink.addEventListener('click', function (e) {

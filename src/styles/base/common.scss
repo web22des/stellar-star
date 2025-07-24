@@ -52,6 +52,14 @@ input[type='radio'].visually-hidden {
   display: none;
 }
 // Новые классы
+.text-clear {
+  display: none;
+  //599px и более
+  @media (min-width: $mobile-large) {
+    display: block;
+  }
+}
+
 .page-accent {
 }
 

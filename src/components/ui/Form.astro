@@ -149,8 +149,50 @@
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     const form = document.querySelector('.contact-form__form');
+    const phoneInput = form.querySelector('input[type="tel"]'); // Находим поле телефона
     const consentCheckbox = document.getElementById('consent');
     const submitButton = form.querySelector('.button--filled');
+
+    // Автоформатирование номера телефона
+    if (phoneInput) {
+      phoneInput.addEventListener('input', function (e) {
+        const input = e.target;
+        let value = input.value.replace(/\D/g, ''); // Удаляем все нецифровые символы
+        let formattedValue = '';
+
+        if (value.length > 0) {
+          formattedValue = '+' + value[0]; // Добавляем + и первую цифру (код страны)
+        }
+        if (value.length > 1) {
+          formattedValue += ' (' + value.substring(1, 4); // Добавляем код оператора/города
+        }
+        if (value.length > 4) {
+          formattedValue += ') ' + value.substring(4, 7); // Первые 3 цифры номера
+        }
+        if (value.length > 7) {
+          formattedValue += '-' + value.substring(7, 9); // Следующие 2 цифры
+        }
+        if (value.length > 9) {
+          formattedValue += '-' + value.substring(9, 11); // Последние 2 цифры
+        }
+
+        // Обрезаем лишние цифры (если введено больше 11)
+        if (value.length > 11) {
+          value = value.substring(0, 11);
+          formattedValue = formattedValue.substring(0, 18); // Максимальная длина форматированного номера
+        }
+
+        input.value = formattedValue;
+      });
+
+      // Разрешаем удаление символов (Backspace, Delete)
+      phoneInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Backspace' || e.key === 'Delete') {
+          // Даём возможность удалять символы
+          return true;
+        }
+      });
+    }
 
     // Проверяем состояние чекбокса при загрузке
     updateButtonState();

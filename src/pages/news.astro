@@ -46,6 +46,7 @@ const getPostUrl = (slug: string) => `${baseUrl}news/${slug}/`;
                 <h2>{post.title}</h2>
               </a>
               {post.description && <p>{post.description}</p>}
+
               <small>{new Date(post.date).toLocaleDateString('ru-RU')}</small>
             </li>
           ))

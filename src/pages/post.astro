@@ -12,6 +12,8 @@ const postFiles: Record<
       title?: string;
       description?: string;
       date?: string;
+      image?: string; // ← ДОБАВЛЯЕМ
+      imageAlt?: string; // ← ДОБАВЛЯЕМ
     };
   }
 > = import.meta.glob('./posts/*.md', { eager: true });
@@ -20,9 +22,11 @@ const postFiles: Record<
 const allPosts = Object.entries(postFiles).map(([filePath, file]) => {
   return {
     slug: path.basename(filePath, '.md'),
-    title: file.frontmatter?.title || 'Без названия',
+    title: file.frontmatter?.title || 'Автор забыл указать название',
     description: file.frontmatter?.description || '',
     date: file.frontmatter?.date || new Date().toISOString(),
+    image: file.frontmatter?.image || null, // ← ДОБАВЛЯЕМ
+    imageAlt: file.frontmatter?.imageAlt || '', // ← ДОБАВЛЯЕМ
   };
 });
 
@@ -31,26 +35,27 @@ const sortedPosts = [...allPosts].sort((a, b) => new Date(b.date).getTime() - ne
 
 // 4. Формируем URL
 const baseUrl = import.meta.env.BASE_URL || '/';
-const getPostUrl = (slug: string) => `${baseUrl}post/${slug}/`;
+const getPostUrl = (slug: string) => `${baseUrl}posts/${slug}/`;
 ---
 
 <PageLayout title={title}>
   <div class="my-posts">
     <div class="my-posts__container">
       <h1 class="my-posts__title">{title}</h1>
-      <ol>
+      <ul>
         {
           sortedPosts.map((post) => (
             <li>
               <a href={getPostUrl(post.slug)}>
+                <img src={post.image} alt={post.imageAlt || post.title} width="400" height="225" loading="lazy" class="my-posts__image" />
                 <h2>{post.title}</h2>
+                {post.description && <p>{post.description}</p>}
+                <small>{new Date(post.date).toLocaleDateString('ru-RU')}</small>
               </a>
-              {post.description && <p>{post.description}</p>}
-              <small>{new Date(post.date).toLocaleDateString('ru-RU')}</small>
             </li>
           ))
         }
-      </ol>
+      </ul>
     </div>
   </div>
 </PageLayout>
@@ -66,6 +71,10 @@ const getPostUrl = (slug: string) => `${baseUrl}post/${slug}/`;
       margin-bottom: var(--space-section);
       font-weight: var(--font-weight-bold);
       text-transform: uppercase;
+    }
+
+    &__image {
+      border-radius: var(--border-radius-medium);
     }
 
     li {

@@ -5,12 +5,12 @@ title: 'Приветственное вступление новое'
 date: 2026-02-10
 description: 'Канал для тех, кто смотрит на создание сайтов с большим скепсисом. Я вас прекрасно понимаю. Давайте сразу по делу.'
 
-image: '/images/post/post-01.jpg'
+image: '/stellar-star/images/post/post-01.jpg'
 imageAlt: 'Моё описание'
 ---
 
 <img 
-  src="/images/post/post-01.jpg" 
+  src="/stellar-star/images/post/post-01.jpg" 
   alt="Моё описание" 
   width="100%" 
   height="auto"

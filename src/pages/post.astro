@@ -47,10 +47,16 @@ const getPostUrl = (slug: string) => `${baseUrl}posts/${slug}/`;
           sortedPosts.map((post) => (
             <li>
               <a href={getPostUrl(post.slug)}>
-                <img src={post.image} alt={post.imageAlt || post.title} width="400" height="225" loading="lazy" class="my-posts__image" />
-                <h2>{post.title}</h2>
-                {post.description && <p>{post.description}</p>}
-                <small>{new Date(post.date).toLocaleDateString('ru-RU')}</small>
+                <div class="my-posts__card">
+                  <div class="image-frame image-frame--square image-frame--thumbnail">
+                    <img src={post.image} alt={post.imageAlt || post.title} width="400" height="225" loading="lazy" class=" image-frame__img " />
+                  </div>
+                  <div class="my-posts__card-body">
+                    <h2>{post.title}</h2>
+                    {post.description && <p>{post.description}</p>}
+                    <small>{new Date(post.date).toLocaleDateString('ru-RU')}</small>
+                  </div>
+                </div>
               </a>
             </li>
           ))
@@ -73,8 +79,12 @@ const getPostUrl = (slug: string) => `${baseUrl}posts/${slug}/`;
       text-transform: uppercase;
     }
 
-    &__image {
-      border-radius: var(--border-radius-medium);
+    &__card {
+      //767px и более
+      @media (min-width: $tablet-small) {
+        display: flex;
+        gap: 24px;
+      }
     }
 
     li {

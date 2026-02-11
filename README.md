@@ -43,3 +43,17 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+---
+
+## Изменения и дополнение к шаблону
+
+Измененен файл `src/styles/base/common.scss` Добавлены классы для стилизации изображения
+
+```scss
+.image-frame {
+}
+
+.image-frame__img {
+}
+```

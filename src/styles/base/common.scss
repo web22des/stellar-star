@@ -7,7 +7,9 @@ body {
   background-color: var(--md-sys-color-surface);
   color: var(--md-sys-color-on-surface);
   line-height: var(--line-height-base);
-  transition: background-color 0.7s ease, color 0.7s ease; // Плавное переключение темы
+  transition:
+    background-color 0.7s ease,
+    color 0.7s ease; // Плавное переключение темы
 }
 
 // Обертка для прижания подвала книзу
@@ -115,6 +117,77 @@ html.no-touch {
     object-fit: cover; // Масштабирует с обрезкой
     object-position: center; // Центрирует (по умолчанию)
   }
+}
+// ==================================
+// 1. Базовый класс — только позиционирование и поведение
+.image-frame {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+
+  // Разумный дефолт
+  aspect-ratio: 16 / 9;
+
+  // Оформление (можно переопределить)
+  border-radius: var(--border-radius-medium);
+  box-shadow: var(--box-shadow-Light-01);
+
+  &__img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+  }
+}
+
+// 2. Модификаторы пропорций
+.image-frame--portrait {
+  aspect-ratio: 9 / 16;
+}
+.image-frame--square {
+  aspect-ratio: 1 / 1;
+}
+.image-frame--wide {
+  aspect-ratio: 21 / 9;
+}
+.image-frame--auto {
+  aspect-ratio: auto;
+}
+
+// 3. Утилиты для конкретных размеров
+.image-frame--fixed-width {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-frame--fixed-height {
+  height: 300px;
+  width: auto;
+}
+
+.image-frame--thumbnail {
+  width: 120px;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  box-shadow: none;
+}
+
+.image-frame--hero {
+  max-width: 1200px;
+  aspect-ratio: 21 / 9;
+  margin: 0 auto;
+}
+
+.image-frame--card {
+  width: 100%;
+  max-width: 350px;
+  aspect-ratio: 4 / 3;
 }
 
 //=== Анимирование фона секции =====================================================================================================================================================

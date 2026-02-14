@@ -5,12 +5,12 @@ title: 'Сайт - это инструмент. А для чего он вам?'
 date: 2026-02-14
 description: 'Ferrari для развозки молока или о чём спросить себя до заказа сайта'
 
-image: '/stellar-star/images/post/post-001.jpg'
+image: '/stellar-star/images/post/post-001.jpeg'
 imageAlt: 'Верстак с инструментами по дереву, среди которых стоит ноутбук.'
 ---
 
 <img 
-  src="/stellar-star/images/post/post-001.jpg" 
+  src="/stellar-star/images/post/post-001.jpeg" 
   alt="Верстак с инструментами по дереву, среди которых стоит ноутбук." 
   width="1280" 
   height="672"

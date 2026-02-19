@@ -2,10 +2,12 @@
 // Используем встроенный Image из astro:assets
 import { Image } from 'astro:assets';
 
+// Импорт изображения по умолчанию
+import defaultImage from '../../assets/images/content/bg-01.jpg';
 interface Props {
-  src: string;
+  src?: string | ImageMetadata;
   alt: string;
-  width: number;
+  width?: number;
   height?: number;
   loading?: 'eager' | 'lazy';
   formats?: Array<'avif' | 'webp' | 'png' | 'jpeg' | 'svg'>;
@@ -13,7 +15,16 @@ interface Props {
   class?: string;
 }
 
-const { src, alt, width, height, loading = 'lazy', formats = ['webp'], quality = 80, class: className } = Astro.props;
+const {
+  src = defaultImage,
+  alt = 'Добавь описание к фото',
+  width = 336,
+  height = 225,
+  loading = 'lazy',
+  formats = ['webp'],
+  quality = 80,
+  class: className, // prettier ignore
+} = Astro.props;
 ---
 
 <Image src={src} alt={alt} width={width} height={height} formats={formats} quality={quality} loading={loading} class={className} />

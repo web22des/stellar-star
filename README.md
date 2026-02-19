@@ -48,7 +48,7 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 ## Изменения и дополнение к шаблону
 
-Измененен файл `src/styles/base/common.scss` Добавлены классы для стилизации изображения
+**Измененен файл** `src/styles/base/common.scss` Добавлены классы для стилизации изображения
 
 ```scss
 .image-frame {
@@ -56,4 +56,18 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 .image-frame__img {
 }
+```
+
+**Добавлен компонент**
+
+Добавлен компонент списка + документация по работе с ним.
+
+**Путь** - `src/components/ui/FeatureList/FeatureList.astro`
+
+**Структура** -
+
+```astro
+📦FeatureList
+ ┣ 📜FeatureList.astro
+ ┗ 📜FeatureList.astro.md
 ```

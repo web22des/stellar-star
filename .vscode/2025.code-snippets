@@ -25,84 +25,91 @@
   // 	],
   // 	"description": "Log output to console"
   // }
-  "Обертка для стилей в компоненте": {
+  "Отключение форматирования блока": {
     "scope": "astro",
+    "prefix": "prettier-not-formatter",
+    "body": "// prettier-ignore",
+    "description": "Запрет форматирования блока",
+  },
+
+  "Обертка для стилей в компоненте": {
+    "scope": "astro,javascript,typescript",
     "prefix": "style-lang-scss",
     "body": ["<style lang=\"scss\">", "${1}", "</style>"],
-    "description": "Обертка для стилей в компоненте"
+    "description": "Обертка для стилей в компоненте",
   },
 
   "Заголовок секции": {
     "scope": "astro",
     "prefix": "TitleSection",
     "body": ["---", "import TitleSections from '../ui/TitleSection.astro';", "const titleSection = '${1}';", "const subTitleSection = '${2}';", "---", "", "<TitleSections titleSection={titleSection} subTitleSection={subTitleSection} />"],
-    "description": "Заголовок секции"
+    "description": "Заголовок секции",
   },
   //Media
   "mobile-small": {
     "scope": "scss, css",
     "prefix": "min-mobile-small",
     "body": ["//359px и более", "@media (min-width:\\$mobile-small){\n\t $0 \n}"],
-    "description": "359px и более"
+    "description": "359px и более",
   },
   "mobile-medium": {
     "scope": "scss, css",
     "prefix": "min-mobile-medium",
     "body": ["//411px и более", "@media (min-width:\\$mobile-medium){\n\t $0 \n}"],
-    "description": "411px и более"
+    "description": "411px и более",
   },
   "mobile-large": {
     "scope": "scss, css",
     "prefix": "min-mobile-large",
     "body": ["//599px и более", "@media (min-width:\\$mobile-large){\n\t $0 \n}"],
-    "description": "599px и более"
+    "description": "599px и более",
   },
   "tablet-small": {
     "scope": "scss, css",
     "prefix": "min-tablet-small",
     "body": ["//767px и более", "@media (min-width:\\$tablet-small){\n\t $0 \n}"],
-    "description": "767px и более"
+    "description": "767px и более",
   },
   "tablet-medium": {
     "scope": "scss, css",
     "prefix": "min-tablet-medium",
     "body": ["//1023px и более", "@media (min-width:\\$tablet-medium){\n\t $0 \n}"],
-    "description": "1023px и более"
+    "description": "1023px и более",
   },
   "tablet-large": {
     "scope": "scss, css",
     "prefix": "min-tablet-large",
     "body": ["//1279px и более", "@media (min-width:\\$tablet-large){\n\t $0 \n}"],
-    "description": "1279px и более"
+    "description": "1279px и более",
   },
   "laptop-small": {
     "scope": "scss, css",
     "prefix": "min-laptop-small",
     "body": ["//1365px и более", "@media (min-width:\\$laptop-small){\n\t $0 \n}"],
-    "description": "1365px и более"
+    "description": "1365px и более",
   },
   "laptop-medium": {
     "scope": "scss, css",
     "prefix": "min-laptop-medium",
     "body": ["//1535px и более", "@media (min-width:\\$laptop-medium){\n\t $0 \n}"],
-    "description": "1535px и более"
+    "description": "1535px и более",
   },
   "laptop-large": {
     "scope": "scss, css",
     "prefix": "min-laptop-large",
     "body": ["//1919px и более", "@media (min-width:\\$laptop-large){\n\t $0 \n}"],
-    "description": "1919px и более"
+    "description": "1919px и более",
   },
   "desktop": {
     "scope": "scss, css",
     "prefix": "min-desktop",
     "body": ["//2559px и более", "@media (min-width:\\$desktop){\n\t $0 \n}"],
-    "description": "2559px и более"
+    "description": "2559px и более",
   },
   "desktop-2k": {
     "scope": "scss, css",
     "prefix": "min-desktop-2k",
     "body": ["//2560px и более", "@media (min-width:\\$desktop-2k){\n\t $0 \n}"],
-    "description": "2560px и более"
-  }
+    "description": "2560px и более",
+  },
 }

@@ -1,0 +1,81 @@
+---
+import TitleSection from '@components/ui/TitleSection.astro';
+import ContentCard from '@components/ui/ContentCard/ContentCard.astro';
+
+import gallery01 from '@assets/images/content/pages-gallery/gallery-01.jpg';
+
+const titleSection = 'Реализовано на Astro';
+const subTitleSection = 'Эти проекты построены на фреймворке Astro - технологии, которая обеспечивает стабильность и масштабируемость на годы вперёд.';
+
+const galleryItems = [
+  {
+    title: 'Заголовок ',
+    description: 'Описание',
+    buttontext: 'Смотреть кейс',
+    image: {
+      src: gallery01,
+      alt: 'фото',
+      width: 336,
+      height: 225,
+      quality: 70,
+      formats: ['webp', 'avif'],
+    },
+  },
+  {
+    title: 'Заголовок ',
+    description: 'Описание',
+    buttontext: 'Смотреть кейс',
+    image: {
+      src: gallery01,
+      alt: 'фото',
+      width: 336,
+      height: 225,
+      quality: 70,
+      formats: ['webp', 'avif'],
+    },
+  },
+  {
+    title: 'Заголовок ',
+    description: 'Описание',
+    buttontext: 'Смотреть кейс',
+    image: {
+      src: gallery01,
+      alt: 'фото',
+      width: 336,
+      height: 225,
+      quality: 70,
+      formats: ['webp', 'avif'],
+    },
+  },
+  {
+    title: 'Заголовок ',
+    description: 'Описание',
+    buttontext: 'Смотреть кейс',
+    image: {
+      src: gallery01,
+      alt: 'фото',
+      width: 336,
+      height: 225,
+      quality: 70,
+      formats: ['webp', 'avif'],
+    },
+  },
+];
+---
+
+<div class="animate gallery">
+  <div class="gallery__container">
+    <TitleSection titleSection={titleSection} subTitleSection={subTitleSection} />
+    <div class="gallery__card-grup">
+      {galleryItems.map((item) => <ContentCard title={item.title} description={item.description} buttontext={item.buttontext} image={item.image} />)}
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '@styles/base/mixins/grid.scss' as grid;
+
+  .gallery__card-grup {
+    @include grid.grid-3-columns(var(--space-grid-gap));
+  }
+</style>

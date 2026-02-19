@@ -1,0 +1,51 @@
+---
+import Images from '../Images.astro';
+import type { Props as ImageProps } from '../Images.astro';
+
+export interface CardPortfolio {
+  title: string;
+  description: string;
+  buttontext: string;
+  image?: ImageProps; // Делаем image опциональным
+}
+
+const {
+  title = 'Заголовок названия',
+  description = 'Описание сайта написанного при помощи фреймворка ASTRO',
+  image, // Теперь может быть undefined
+  buttontext = 'Смотреть',
+} = Astro.props;
+---
+
+<div class="card-portfolio">
+  <h3>{title}</h3>
+
+  {/* Всегда рендерим Images, даже если image не передан */}
+  <div class="card-portfolio__image image-frame">
+    <Images {...image} class="image-frame__img" />
+  </div>
+
+  <p>{description}</p>
+  <a class="button button--text" href="#">{buttontext}</a>
+</div>
+
+<style lang="scss">
+  .card-portfolio {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background-color: var(--md-sys-color-primary-container);
+    border-radius: var(--border-radius-medium);
+    color: var(--md-sys-color-on-primary-container);
+    box-shadow: var(--box-shadow-Light-03);
+    //max-width: 360px;
+    padding: 24px 12px;
+    text-align: center;
+    &__image {
+    }
+
+    h3 {
+      font-size: var(--font-size-headline-large);
+    }
+  }
+</style>

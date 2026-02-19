@@ -1,0 +1,83 @@
+---
+// src/components/ui/FeatureList/FeatureList.astro
+/**
+ * Компонент для отображения списка характеристик с опциональными иконками
+ * @component
+ * @example
+ * <FeatureList
+ *   items={[
+ *     { text: "Длительность: 10 часов", icon: "_icon-clock" },
+ *     { text: "Уровень: начинающий", icon: "_icon-level" }
+ *   ]}
+ * />
+ */
+
+export interface FeatureItem {
+  /** Текст характеристики */
+  text: string;
+  /** Опциональный класс иконки из иконочного шрифта (например, "icon-check", "icon-time") */
+  icon?: string;
+}
+
+interface Props {
+  /** Массив характеристик для отображения */
+  items: FeatureItem[];
+  /** Дополнительные CSS классы для кастомизации */
+  class?: string;
+  /** ARIA метка для списка (для доступности) */
+  ariaLabel?: string;
+}
+
+const { items, class: className, ariaLabel = 'Характеристики' } = Astro.props;
+
+// Валидация на этапе разработки (опционально)
+if (import.meta.env.DEV && !items?.length) {
+  console.warn('FeatureList: передан пустой массив items');
+}
+---
+
+{
+  items && items.length > 0 ? (
+    <ul class={className} aria-label={ariaLabel}>
+      {items.map((item, index) => (
+        <li class="feature-item" data-has-icon={!!item.icon}>
+          {item.icon && <span class={item.icon} aria-hidden="true" role="presentation" />}
+          <span class="feature-item__text">{item.text}</span>
+        </li>
+      ))}
+    </ul>
+  ) : null
+}
+
+<style lang="scss">
+  /**
+   * Базовые минимальные стили компонента
+   * Цвета, размеры шрифтов, отступы от родителя - НЕ включены
+   * Это только структурные стили для корректного отображения
+   */
+
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    align-items: center;
+    gap: 0.5em; /* относительный отступ, будет масштабироваться от размера шрифта */
+  }
+
+  /* Контейнер для иконки */
+  .feature-item [class*='_icon-'] {
+    flex-shrink: 0; /* запрещаем сжиматься */
+    line-height: 1; /* убираем лишнее пространство */
+    /* Размер иконки наследуется от текущего font-size */
+  }
+
+  /* Текст характеристики */
+  .feature-item__text {
+    flex: 1; /* занимает все доступное пространство */
+    /* Все стили текста наследуются от родителя */
+  }
+
+  /* Опционально: стили для элементов без иконки */
+  .feature-item[data-has-icon='false'] {
+    margin-left: 0; /* можно добавить отступ если нужно */
+  }
+</style>

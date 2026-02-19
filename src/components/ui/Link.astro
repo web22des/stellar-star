@@ -1,4 +1,5 @@
 ---
+// src/components/ui/Link.astro
 const { href, ...props } = Astro.props;
 const resolvedHref = import.meta.env.BASE_URL + href.replace(/^\//, '');
 ---

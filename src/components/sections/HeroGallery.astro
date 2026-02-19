@@ -1,0 +1,96 @@
+---
+// src/components/sections/HeroGallery.astro
+import Images from '../ui/Images.astro';
+import type { Props as ImageProps } from '../ui/Images.astro';
+import FeatureList from '../ui/FeatureList/FeatureList.astro';
+import type { Props as FeatureListProps } from '../ui/FeatureList/FeatureList.astro';
+
+// Интерфейс пропсов (название с большой буквы - общепринято)
+export interface Props {
+  title?: string; // заменил galleryTitle на title (короче)
+  description?: string; // заменил galleryDescription на description
+  features?: FeatureListProps['items']; // используем правильный тип
+  image?: ImageProps; // оставил как есть
+}
+
+// Получаем ВСЕ пропсы
+const {
+  title = 'Astro - решения, которые уже работают',
+  description = 'Изучите готовые проекты, построенные на фреймворке ASTRO. Это не макеты — это реальные сайты с высокими метриками.',
+  features = [
+    { text: 'Высокая производительность', icon: '_icon-attachment' },
+    { text: 'Бескомпромиссное SEO', icon: '_icon-attachment' },
+    { text: 'Полная адаптивность', icon: '_icon-attachment' },
+    { text: 'Чистая архитектура', icon: '_icon-attachment' },
+    { text: 'Индивидуальный дизайн', icon: '_icon-attachment' },
+  ],
+  image, // ✅ ДОБАВИЛ image в деструктуризацию!
+} = Astro.props;
+---
+
+<div class="animate hero-gallery">
+  <div class="hero-gallery__container">
+    <h1>{title}</h1>
+    {/* Используем пропс */}
+
+    <div class="hero-gallery__content">
+      {/* Блок с изображением - проверяем что image существует */}
+      <div class="hero-gallery__image-ibg image-frame">
+        <Images {...image} class="image-frame__img" />
+      </div>
+
+      {/* Блок с контентом */}
+      <div class="hero-gallery__content-col">
+        <p>{description}</p>
+        {/* Используем пропс */}
+        <FeatureList class="hero-gallery__list" items={features} />
+      </div>
+    </div>
+  </div>
+</div>
+
+<style lang="scss">
+  .hero-gallery {
+    padding-top: 80px;
+
+    h1 {
+      font-size: var(--font-size-display-medium);
+      text-shadow: var(--text-shadow-Light-03);
+      margin-bottom: 40px;
+    }
+    p {
+      font-size: var(--font-size-headline-small);
+      max-width: 552px;
+    }
+    &__list {
+      font-size: var(--font-size-title-large);
+    }
+    &__image-ibg {
+    }
+    &__content-col {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+      width: 100%;
+      // ✅ Используем :global() для стилизации внутренних компонентов
+      :global(.feature-item__text) {
+        font-size: var(--font-size-title-large);
+      }
+    }
+
+    //767px и более
+    @media (min-width: $tablet-small) {
+      &__content {
+        display: flex;
+      }
+      &__image-ibg {
+        order: 2;
+        flex: 1;
+      }
+      &__content-col {
+        order: 1;
+        flex: 1;
+      }
+    }
+  }
+</style>
